@@ -1,5 +1,10 @@
 <template>
     <div class="card flex-fill" >
+        <div class="card-tools">
+           <router-link  to="/settings" class="pull-left btn btn-success">Home Settings 
+               <i class="icon-angle-right"></i>
+           </router-link>       
+        </div>
             <img class="card-img-top " :src="advertLoadImage(SingleAdvert.advert_image)" style="width:100%;">
         <div class="card-body" >
             <h5 class="card-title text-center">{{SingleAdvert.title}}</h5>

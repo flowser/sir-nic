@@ -42,6 +42,12 @@ import BureauAdminList from './components/admins/organisation/admin/SingleBureau
 
 
 
+//frontend public view
+import Public from './components/public/About.vue';
+import ServiceModel from './components/public/ServiceModel.vue';
+
+
+
 
 
 
@@ -130,14 +136,14 @@ export const routes = [
 
 
 // //Front End
-//   {
-//     path:'/',
-//     component: PublicHome
-//   },
-//   {
-//     path:'/blog',
-//     component: BlogCourse
-//   },
+  {
+    path:'/pub', ///public
+    component: Public
+  },
+  {
+    path:'/servicemodels/:id', ///public
+    component: ServiceModel
+  },
 //   {
 //     path:'/blog/:id',
 //     component: SingleCourse

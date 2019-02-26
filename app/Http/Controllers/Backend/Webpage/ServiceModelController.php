@@ -191,7 +191,7 @@ class ServiceModelController extends Controller
    {
        $servicemodel = ServiceModel::findOrFail($id);
        //image inline with this organisation
-       $Path = public_path()."/assets/organisation/img/website/services/servicemodels";
+       $Path = public_path()."/assets/organisation/img/website/services/servicemodels/";
 
        $Image = $Path. $servicemodel->image;
 

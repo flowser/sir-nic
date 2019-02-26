@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Frontend\PublicController;
 use App\Http\Controllers\Backend\Standard\WardController;
 use App\Http\Controllers\Backend\Webpage\AboutController;
 use App\Http\Controllers\Backend\Webpage\AdvertController;
@@ -33,12 +34,15 @@ use App\Http\Controllers\Backend\Organisation\Superadmin\OrganisationController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('public.publicmaster');
 });
+// Route::get('/', [PublicController::class, 'index'])->name('public.index');
+
+// Route::get('/', 'HomeController@index')->name('adminhome');
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/admin_home', 'HomeController@index')->name('adminhome');
 
 
 // *

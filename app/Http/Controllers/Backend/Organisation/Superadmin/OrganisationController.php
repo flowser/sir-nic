@@ -24,7 +24,7 @@ class OrganisationController extends Controller
     {
         $organisation = Organisation::
                         with('country', 'county', 'constituency', 'ward', 'organisationdirectors','organisationadmins',
-                         'organisationemployees')
+                         'organisationemployees', 'about','services', 'servicemodels', 'adverts', 'features')
                         ->first();
         return response()-> json([
             'organisation' => $organisation,

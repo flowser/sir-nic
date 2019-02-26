@@ -34,7 +34,10 @@
                              <a href="#ServiceModel">Service Model Settings</a>
                         </h3>
                         <div class="card-tools">
-                            <button class="btn btn-success" @click.prevent="newServiceModelModal()" >Add new Service Models
+                            <router-link  to="/settings" class="pull-left btn btn-success">Home Settings 
+                                <i class="icon-angle-right"></i>
+                            </router-link>
+                            <button class="pul-right btn btn-success" @click.prevent="newServiceModelModal()" >Add new Service Models
                                 <i class="fas fa-plus fw"></i>
                             </button>
                         </div>

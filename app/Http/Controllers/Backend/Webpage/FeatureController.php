@@ -244,7 +244,7 @@ class FeatureController extends Controller
    {
        $feature = Feature::findOrFail($id);
        //image inline with this organisation
-       $Path = public_path()."/assets/organisation/img/website/features";
+       $Path = public_path()."/assets/organisation/img/website/features/";
 
        $Image = $Path. $feature->image;
 

@@ -179,42 +179,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                              <p> Dashboard </p>
                     </router-link>
                 </li>
-                {{--  view by organisation admin  --}}
-                <li class="nav-item">
-                    <router-link to="/bureaus" class="nav-link">
-                        <i class="fa fa-users purple  nav-icon"></i>
-                        <p>Bureaus</p>
-                    </router-link>
-                </li>
-               {{-- organisation view by Super Admin --}}
-                <li class="nav-item has-treeview">
-                    <a href="#" class="nav-link ">
-                        <i class="nav-icon  yellow fas fa-cog"></i>
-                        <p>Organisation
-                            <i class="right fa fa-angle-left"></i>
-                        </p>
-                    </a>
-                    <ul class="nav nav-treeview">
-                        <li class="nav-item">
-                            <router-link to="/orgdirectors" class="nav-link">
-                                <i class="fa fa-users purple  nav-icon"></i>
-                                <p>Directors</p>
-                            </router-link>
-                        </li>
-                        <li class="nav-item">
-                            <router-link to="/orgadmins" class="nav-link">
-                                <i class="fa fa-users blue nav-icon"></i>
-                                <p>Admins</p>
-                            </router-link>
-                        </li>
-                        <li class="nav-item">
-                            <router-link to="/orgemployees" class="nav-link">
-                                <i class="fa fa-users green nav-icon"></i>
-                                <p>Employees</p>
-                            </router-link>
-                        </li>
-                    </ul>
-                </li>
+
                 <li class="nav-item has-treeview">
                     <a href="#" class="nav-link ">
                         <i class="nav-icon  red fas fa-cog"></i>
@@ -256,7 +221,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
         <!-- Main content -->
         <div class="content">
-
                 <admin-main></admin-main>
         </div>
         <!-- /.content -->

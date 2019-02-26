@@ -233,9 +233,8 @@ class AdvertController extends Controller
    public function destroy($id)
    {
        $advert = Advert::findOrFail($id);
-       //advert_image inline with this organisation
-       $Path = public_path()."/assets/organisation/img/website/adverts";
-
+       $Path = public_path()."/assets/organisation/img/website/adverts/";
+ 
        $Advert_image = $Path. $advert->advert_image;
 
        if(file_exists($Advert_image)){

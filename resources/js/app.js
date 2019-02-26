@@ -26,6 +26,7 @@ import{routes} from './routes';
 
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 Vue.component('admin-main', require('./components/admins/AdminMaster.vue').default);
+Vue.component('pub-main', require('./components/public/PublicMaster.vue').default);
 
 //Vue-progress bar
 import VueProgressBar from 'vue-progressbar';
