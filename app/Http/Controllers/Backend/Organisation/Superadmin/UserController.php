@@ -121,7 +121,18 @@ class UserController extends Controller
             'permissions'=>'sometimes|required',
             'roles'=>'sometimes|required',
         ]);
-        $user->update($request->all());
+        $user->first_name = $request->first_name;
+            $user->last_name  = $request->last_name;
+            $user->email      = $request->email;
+            $user->active     = true;
+            $user->confirmed  = true;
+            $user->confirmation_code = md5(uniqid(mt_rand(), true));
+            $user->user_type      = $request->user_type;
+            $user->password   = Hash::make($request->password);
+
+            // $user->assignRole($request ['roles']);
+            // $user->syncPermissions($request ['permissions']);
+            $user->save();
         return ['message', 'update the user info'];
     }
 

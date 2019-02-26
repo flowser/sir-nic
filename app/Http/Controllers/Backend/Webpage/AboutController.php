@@ -203,32 +203,34 @@ class AboutController extends Controller
                 $about->user_id = $user ->id;
             }
         }
-        // $about->logo = $request ->logo;
-        //getting previous logo
-        $currentFront_image =  $about->front_image;
 
-         //processing logo nme and size
-        if($request->front_image != $currentFront_image){
-            $Path = public_path()."/assets/organisation/img/website/frontimage";
+        //getting previous image
+        $currentFront_Image = $about->front_image;
 
-            $S_currentFront_image = $Path. $currentFront_image;
+        //processing image nme and size
+        if($request->front_image != $currentFront_Image){
+            $Path = public_path()."/assets/organisation/img/website/frontimage/";
+
+            // return $request->front_image;
+            $S_currentFront_Image = $Path. $currentFront_Image;
             //deleting if exists
-                if(file_exists($S_currentFront_image)){
-                    @unlink($S_currentFront_image);
-                }
+                if(file_exists($S_currentFront_Image)){
+                    @unlink($S_currentFront_Image);
 
+                }
                 $strpos = strpos($request->front_image, ';'); //positionof image name semicolon
                 $sub = substr($request->front_image, 0, $strpos);
                 $ex = explode('/', $sub)[1];
                 $name = time().".".$ex;
 
-                $img = Image::make($request->front_image);
-                $img ->save($Path.'/'.$name);
-
+                 $img = Image::make($request->front_image);
+                 $img ->save($Path.'/'.$name);
+             //end processing
+                 $about->front_image = $name;
         }else{
-            $name = $about->front_image;
+            $about->front_image = $request->front_image;
         }
-        $about->front_image = $name;
+
         $about->save();
     }
 

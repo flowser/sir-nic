@@ -2,14 +2,10 @@
 //permission
 
 const state = {
-    advert:[],
     adverts:[],
     singleadvert:[],
   },
   getters = {
-    Advert(state){
-      return state.advert;
-    },
     Adverts(state){
       return state.adverts;
     },
@@ -18,15 +14,8 @@ const state = {
     },
   }
 const actions = {
-    advert(context){
-        axios.get('/advert/get')//based on authethicated id
-        .then((response)=>{
-          console.log(response.data);
-          context.commit('advert', response.data.advert); //based on authethicated id
-        });
-    },
     adverts(context){
-        axios.get('/adverts/get')
+        axios.get('/advert/get')
         .then((response)=>{
         //   console.log(response.data.adverts);
           context.commit('adverts', response.data.adverts);
@@ -42,9 +31,6 @@ const actions = {
   }
 
 const mutations = {
-    advert(state, data){
-      return state.advert = data;
-    },
     adverts(state, data){
       return state.adverts = data;
     },

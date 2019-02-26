@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Backend\Standard\WardController;
 use App\Http\Controllers\Backend\Webpage\AboutController;
+use App\Http\Controllers\Backend\Webpage\AdvertController;
 use App\Http\Controllers\Backend\Standard\CountyController;
 use App\Http\Controllers\Backend\Webpage\FeatureController;
 use App\Http\Controllers\Backend\Webpage\ServiceController;
@@ -329,6 +330,19 @@ Route::get('/home', 'HomeController@index')->name('home');
         Route::get('feature/edit/{feature}', [FeatureController::class, 'edit'])->name('feature.edit');
         Route::patch('feature/update/{feature}', [FeatureController::class, 'update'])->name('feature.update');
         Route::get('feature/delete/{feature}/', [FeatureController::class, 'destroy'])->name('feature.destroy');
+
+        // adverts
+        Route::get('advert/get', [AdvertController::class, 'index'])->name('advert.index');
+        Route::get('adverts/get', [AdvertController::class, 'organisations'])->name('advert.organisations');
+        Route::get('advert/get/list', [AdvertController::class, 'aboutList'])->name('advert.list-index');
+        Route::post('advert', [AdvertController::class, 'store'])->name('advert.store');
+        //     /*
+        //      * Specifics
+        //      */
+        Route::get('advert/show/{advert}', [AdvertController::class, 'show'])->name('advert.show');
+        Route::get('advert/edit/{advert}', [AdvertController::class, 'edit'])->name('advert.edit');
+        Route::patch('advert/update/{advert}', [AdvertController::class, 'update'])->name('advert.update');
+        Route::get('advert/delete/{advert}/', [AdvertController::class, 'destroy'])->name('advert.destroy');
 
 
 

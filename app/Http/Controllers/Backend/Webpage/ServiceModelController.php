@@ -150,35 +150,33 @@ class ServiceModelController extends Controller
         //getting Organisation $user, about_id
         $user = Auth::user();
         $servicemodel->user_id = $user ->id;
-        $currentimage =  $servicemodel->image;
+
+        //getting previous image
+        $currentImage = $servicemodel->image;
 
         //processing image nme and size
-            if($request->image != $currentimage){
-                $Path = public_path()."/assets/organisation/img/website/services/servicemodels";
+        if($request->image != $currentImage){
+            $Path = public_path()."/assets/organisation/img/website/services/servicemodels/";
 
-                $currentImage = $Path. $currentimage;
+            // return $request->image;
+            $S_currentImage = $Path. $currentImage;
+            //deleting if exists
+                if(file_exists($S_currentImage)){
+                    @unlink($S_currentImage);
 
+                }
+                $strpos = strpos($request->image, ';'); //positionof image name semicolon
+                $sub = substr($request->image, 0, $strpos);
+                $ex = explode('/', $sub)[1];
+                $name = time().".".$ex;
 
-                //deleting if exists
-                    if(file_exists($currentImage)){
-                        @unlink($currentImage);
-                    }
-                    // if(File::exists($image_path)) {
-                    //     File::delete($image_path);
-                    // }
-
-                    $strpos = strpos($request->image, ';'); //positionof image name semicolon
-                    $sub = substr($request->image, 0, $strpos);
-                    $ex = explode('/', $sub)[1];
-                    $name = time().".".$ex;
-
-                    $img = Image::make($request->image);
-                    $img ->save($Path.'/'.$name);
-
-                    $servicemodel->image = $name;
-            }else{
-                $name = $servicemodel->image;
-            }
+                 $img = Image::make($request->image);
+                 $img ->save($Path.'/'.$name);
+             //end processing
+                 $servicemodel->image = $name;
+        }else{
+            $servicemodel->image = $request->image;
+        }
 
        $servicemodel->save();
    }

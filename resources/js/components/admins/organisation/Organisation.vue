@@ -315,14 +315,8 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="#servicemodels" class="nav-link" data-toggle="tab"
-                                title="Service Model" aria-expanded="true">
-                                <i class="fa fa-newspaper red">Service Model</i>
-                            </a>
-                        </li>
-                        <li class="nav-item">
                             <a href="#features" class="nav-link" data-toggle="tab"
-                                title="AFeatures Pages" aria-expanded="true">
+                                title="Features Pages" aria-expanded="true">
                                 <i class="fa fa-newspaper red">Features Page </i>
                             </a>
                         </li>
@@ -431,7 +425,7 @@
                                                             <h6 class="card-title text-center">{{service.service_title}}</h6>
                                                             <p style="margin-bottom:-0.5em" class="card-text">{{service.service_details | sortlength(80, "...") }}</p>
                                                         </div>
-                                                            <router-link  :to="`/service/${service.id}`" class="pull-right blue">Read More <i class="icon-angle-right"></i></router-link>
+                                                            <router-link  :to="`/service/${service.id}`" class="pull-right blue">View and Add new Service Models <i class="icon-angle-right"></i></router-link>
                                                         <div class="clearfix">
                                                             <span class="float-left" style="margin-bottom:-0.5em" >
                                                                 <p style="margin-bottom:-0.5em">
@@ -460,80 +454,27 @@
                                             <!--end service  -->
                                     </div>
                                 </div>
-                                <div class="tab-pane" id="servicemodels">
-                                    <div class="card-header">
-                                        <h3 class="card-title">
-                                             <a href="#advert">Service Model Settings</a>
-                                        </h3>
-                                        <div class="card-tools">
-                                                <button class="btn btn-success" @click.prevent="newServiceModelModal()" >Add new Service Models
-                                                    <i class="fas fa-plus fw"></i>
-                                                </button>
-                                        </div>
-                                    </div>
-                                    <div class="card-body">
-                                         <!-- servicemodel -->
-                                            <div class="row ">
-                                                 <div  v-for="servicemodel in ServiceModel" :key="servicemodel.id" class="col-md-3 d-flex">
-                                                    <div class="card flex-fill" >
-                                                            <!-- <img class="card-img-top " :src="servicemodelLoadImage(servicemodel.servicemodel_image)" style="width:100%;height:150px;"> -->
-                                                        <div class="card-body" >
-                                                                <h5 class="card-title text-center">{{servicemodel.title}}</h5>
-                                                            <h6 class="card-title text-center">{{servicemodel.title}}</h6>
-                                                            <p style="margin-bottom:-0.5em" class="card-text">{{servicemodel.details | sortlength(80, "...") }}</p>
-                                                            <p style="margin-bottom:-0.5em" class="card-text">{{servicemodel.why | sortlength(80, "...") }}</p>
-                                                        </div>
-                                                            <router-link  :to="`/servicemodel/${servicemodel.id}`" class="pull-right blue">Read More <i class="icon-angle-right"></i></router-link>
-                                                        <div class="clearfix">
-                                                            <span class="float-left" style="margin-bottom:-0.5em" >
-                                                                <p style="margin-bottom:-0.5em">
-                                                                    <small class="text-muted">Updated By: {{servicemodel.user.full_name}}</small>
-                                                                </p>
-                                                                <p style="margin-bottom:0.25em">
-                                                                    <small class="text-muted">On: {{servicemodel.updated_at | dateformat}}</small>
-                                                                </p>
-                                                            </span>
-                                                            <span class="float-right">
-                                                                <a href=""  @click.prevent="editServiceModelModal(servicemodel.id)">
-                                                                    <i class="fa fa-edit blue"></i>
-                                                                </a>
-                                                                /
-                                                                <a href=""  @click.prevent="deleteServiceModel(servicemodel.id)">
-                                                                    <i class="fa fa-trash red"></i>
-                                                                </a>
-                                                            </span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <ul class="pagination" style="padding: 0px;margin: 0px;">
-                                                        <!-- {{ $fulltime_courses->links()}} -->
-                                                </ul>
-                                            </div>
-                                            <!--end servicemodel  -->
-                                    </div>
-                                </div>
                                 <div class="tab-pane" id="features">
                                     <div class="card-header">
                                         <h3 class="card-title">
-                                             <a href="#advert">Service Model Settings</a>
+                                             <a href="#features">System Features Settings</a>
                                         </h3>
                                         <div class="card-tools">
-                                                <button class="btn btn-success" @click.prevent="newFeatureModal()" >Add new Service Models
+                                                <button class="btn btn-success" @click.prevent="newFeatureModal()" >Add new System Feature
                                                     <i class="fas fa-plus fw"></i>
                                                 </button>
                                         </div>
                                          <!-- feature -->
                                             <div class="row ">
-                                                 <div  v-for="feature in Feature" :key="feature.id" class="col-md-3 d-flex">
+                                                <div  v-for="feature in Features" :key="feature.id" class="col-md-3 d-flex">
                                                     <div class="card flex-fill" >
-                                                            <!-- <img class="card-img-top " :src="featureLoadImage(feature.feature_image)" style="width:100%;height:150px;"> -->
+                                                            <img class="card-img-top " :src="featureLoadImage(feature.image)" style="width:100%;height:150px;">
                                                         <div class="card-body" >
-                                                                <h5 class="card-title text-center">{{feature.title}}</h5>
-                                                            <h6 class="card-title text-center">{{feature.title}}</h6>
-                                                            <p style="margin-bottom:-0.5em" class="card-text">{{feature.details | sortlength(80, "...") }}</p>
-                                                            <p style="margin-bottom:-0.5em" class="card-text">{{feature.why | sortlength(80, "...") }}</p>
+                                                            <h5 class="card-title text-center">{{feature.title}}</h5>
+                                                            <p style="margin-bottom:-0.5em" class="card-text">{{feature.details }}</p>
+                                                            <!-- <p style="margin-bottom:-0.5em" class="card-text">{{feature.why | sortlength(80, "...") }}</p> -->
                                                         </div>
-                                                            <router-link  :to="`/feature/${feature.id}`" class="pull-right blue">Read More <i class="icon-angle-right"></i></router-link>
+                                                            <!-- <router-link  :to="`/feature/${feature.id}`" class="pull-right blue">Read More <i class="icon-angle-right"></i></router-link> -->
                                                         <div class="clearfix">
                                                             <span class="float-left" style="margin-bottom:-0.5em" >
                                                                 <p style="margin-bottom:-0.5em">
@@ -574,7 +515,7 @@
                                         </div>
                                          <!-- Advert -->
                                             <div class="row ">
-                                                 <div  v-for="advert in Advert" :key="advert.id" class="col-md-3 d-flex">
+                                                 <div  v-for="advert in Adverts" :key="advert.id" class="col-md-3 d-flex">
                                                     <div class="card flex-fill" >
                                                             <img class="card-img-top " :src="advertLoadImage(advert.advert_image)" style="width:100%;height:150px;">
                                                         <div class="card-body" >
@@ -1883,13 +1824,6 @@
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="form-group col-md-12">
-                                    <label for="why" class="col-form-label">Why</label>
-                                    <textarea v-model="featureform.why" type="text" name="why" placeholder="Why"
-                                        class="form-control" :class="{ 'is-invalid': featureform.errors.has('why') }" >
-                                    </textarea>
-                                    <has-error style="color: #e83e8c" :form="featureform" field="why"></has-error>
-                                </div>
                                 <div class="form-group col-md-6">
                                     <label for="image" class=" col-form-label">Feature Image</label><br>
                                         <input @change="featureChangeImage($event)" type="file" name="image"
@@ -2219,9 +2153,9 @@
             this.loadOrganisation();
             this.loadAbout();
             this.loadService();
-            this.loadFeature();
+            this.loadFeatures();
             this.loadServiceModel();
-            this.loadAdvert();
+            this.loadAdverts();
 
         },
         computed:{
@@ -2258,14 +2192,14 @@
             Service(){
                return this.$store.getters.Service
             },
-            Feature(){
-               return this.$store.getters.Feature
+            Features(){
+               return this.$store.getters.Features
             },
             ServiceModel(){
                return this.$store.getters.ServiceModel
             },
-            Advert(){
-               return this.$store.getters.Advert
+            Adverts(){
+               return this.$store.getters.Adverts
             },
         },
         methods:{
@@ -2455,14 +2389,14 @@
             loadAbout(){
                 return this.$store.dispatch( "about")
             },
-            loadAdvert(){
-                return this.$store.dispatch( "advert")
+            loadAdverts(){
+                return this.$store.dispatch( "adverts")
             },
             loadService(){
                 return this.$store.dispatch( "service")
             },
-            loadFeature(){
-                return this.$store.dispatch( "feature")
+            loadFeatures(){
+                return this.$store.dispatch( "features")
             },
             loadServiceModel(){
                 return this.$store.dispatch( "servicemodel")
@@ -3741,9 +3675,9 @@
                            this.$store.dispatch( "organisation")
                             this.$store.dispatch( "about")
                             this.$store.dispatch( "service")
-                            this.$store.dispatch( "feature")
+                            this.$store.dispatch( "features")
                             this.$store.dispatch( "servicemodel")
-                            this.$store.dispatch( "advert")
+                            this.$store.dispatch( "adverts")
                             $('#AboutModal').modal('hide')
                             this.aboutform.reset()
                               this.$Progress.finish()
@@ -3766,9 +3700,9 @@
                              this.$store.dispatch( "organisation")
                             this.$store.dispatch( "about")
                             this.$store.dispatch( "service")
-                            this.$store.dispatch( "feature")
+                            this.$store.dispatch( "features")
                             this.$store.dispatch( "servicemodel")
-                            this.$store.dispatch( "advert")
+                            this.$store.dispatch( "adverts")
                          $('#AboutModal').modal('hide')
                          toast({
                             type: 'success',
@@ -3871,9 +3805,9 @@
                             this.$store.dispatch( "organisation")
                             this.$store.dispatch( "about")
                             this.$store.dispatch( "service")
-                            this.$store.dispatch( "feature")
+                            this.$store.dispatch( "features")
                             this.$store.dispatch( "servicemodel")
-                            this.$store.dispatch( "advert")
+                            this.$store.dispatch( "adverts")
                             $('#ServiceModal').modal('hide')
                             this.serviceform.reset()
                               this.$Progress.finish()
@@ -3896,9 +3830,9 @@
                             this.$store.dispatch( "organisation")
                             this.$store.dispatch( "about")
                             this.$store.dispatch( "service")
-                            this.$store.dispatch( "feature")
+                            this.$store.dispatch( "features")
                             this.$store.dispatch( "servicemodel")
-                            this.$store.dispatch( "advert")
+                            this.$store.dispatch( "adverts")
                          $('#ServiceModal').modal('hide')
                          toast({
                             type: 'success',
@@ -4003,9 +3937,9 @@
                             this.$store.dispatch( "organisation")
                             this.$store.dispatch( "about")
                             this.$store.dispatch( "service")
-                            this.$store.dispatch( "feature")
+                            this.$store.dispatch( "features")
                             this.$store.dispatch( "servicemodel")
-                            this.$store.dispatch( "advert")
+                            this.$store.dispatch( "adverts")
                             $('#AdvertModal').modal('hide')
                             this.advertform.reset()
                               this.$Progress.finish()
@@ -4028,9 +3962,9 @@
                             this.$store.dispatch( "organisation")
                             this.$store.dispatch( "about")
                             this.$store.dispatch( "service")
-                            this.$store.dispatch( "feature")
+                            this.$store.dispatch( "features")
                             this.$store.dispatch( "servicemodel")
-                            this.$store.dispatch( "advert")
+                            this.$store.dispatch( "adverts")
                          $('#AdvertModal').modal('hide')
                          toast({
                             type: 'success',
@@ -4047,6 +3981,47 @@
                             })
                         })
             },
+            deleteAdvert(id){
+                Swal({
+                    title: 'Are you sure?',
+                    text: "You won't be able to revert this!",
+                    type: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Yes, delete it!'
+                })
+                .then((result) => {
+                    if (result.value) {
+                    //  console.log('delete user', id)
+                        this.$Progress.start();
+                        this.advertform.get('/advert/delete/'+id)
+                            .then(()=>{
+                            toast({
+                            type: 'success',
+                            title: 'Advert Deleted successfully'
+                            })
+                            this.$store.dispatch( "organisation")
+                            this.$store.dispatch( "about")
+                            this.$store.dispatch( "service")
+                            this.$store.dispatch( "features")
+                            this.$store.dispatch( "servicemodel")
+                            this.$store.dispatch( "adverts")
+
+                            this.$Progress.finish();
+                        })
+                        .catch(()=>{
+                            this.$Progress.fail();
+                            toast({
+                            type: 'error',
+                            title: 'There was something wrong'
+                            })
+                        })
+                     }
+                })
+            },
+
+
             //Feature
             newFeatureModal(){
                 this.editmodeFeature = false;
@@ -4101,7 +4076,7 @@
             },
             featureLoadImage(image_id){
                 if(image_id){
-                    return "/assets/organisation/img/website/image/"+image_id;
+                    return "/assets/organisation/img/website/features/"+image_id;
                 }else{
                     return "/assets/organisation/img/website/empty.png";
                 }
@@ -4110,11 +4085,10 @@
                 // console.log(featureformimage, 'mixcv')
                 let img = this.featureform.image;
                       if(img.length>100){
-                            console.log('bbbbmixcv')
                             return this.featureform.image;
                         }else{
                             if(featureformimage){
-                                return "assets/organisation/img/website/image/"+featureformimage;
+                                return "assets/organisation/img/website/features/"+featureformimage;
                             }else{
                                 return "/assets/organisation/img/website/empty.png";
                             }
@@ -4133,9 +4107,9 @@
                             this.$store.dispatch( "organisation")
                             this.$store.dispatch( "about")
                             this.$store.dispatch( "service")
-                            this.$store.dispatch( "feature")
+                            this.$store.dispatch( "features")
                             this.$store.dispatch( "servicemodel")
-                            this.$store.dispatch( "advert")
+                            this.$store.dispatch( "adverts")
                             $('#FeatureModal').modal('hide')
                             this.featureform.reset()
                               this.$Progress.finish()
@@ -4158,9 +4132,9 @@
                             this.$store.dispatch( "organisation")
                             this.$store.dispatch( "about")
                             this.$store.dispatch( "service")
-                            this.$store.dispatch( "feature")
+                            this.$store.dispatch( "features")
                             this.$store.dispatch( "servicemodel")
-                            this.$store.dispatch( "advert")
+                            this.$store.dispatch( "adverts")
                          $('#FeatureModal').modal('hide')
                          toast({
                             type: 'success',
@@ -4177,6 +4151,47 @@
                             })
                         })
             },
+            deleteFeature(id){
+                Swal({
+                    title: 'Are you sure?',
+                    text: "You won't be able to revert this!",
+                    type: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Yes, delete it!'
+                })
+                .then((result) => {
+                    if (result.value) {
+                    //  console.log('delete user', id)
+                        this.$Progress.start();
+                        this.featureform.get('/feature/delete/'+id)
+                            .then(()=>{
+                            toast({
+                            type: 'success',
+                            title: 'Feature Deleted successfully'
+                            })
+                            this.$store.dispatch( "organisation")
+                            this.$store.dispatch( "about")
+                            this.$store.dispatch( "service")
+                            this.$store.dispatch( "features")
+                            this.$store.dispatch( "servicemodel")
+                            this.$store.dispatch( "adverts")
+
+                            this.$Progress.finish();
+                        })
+                        .catch(()=>{
+                            this.$Progress.fail();
+                            toast({
+                            type: 'error',
+                            title: 'There was something wrong'
+                            })
+                        })
+                     }
+                })
+            },
+
+
 
             //Servicemodel
             newServiceModelModal(){
@@ -4264,9 +4279,9 @@
                             this.$store.dispatch( "organisation")
                             this.$store.dispatch( "about")
                             this.$store.dispatch( "service")
-                            this.$store.dispatch( "feature")
+                            this.$store.dispatch( "features")
                             this.$store.dispatch( "servicemodel")
-                            this.$store.dispatch( "advert")
+                            this.$store.dispatch( "adverts")
                             $('#ServiceModelModal').modal('hide')
                             this.servicemodelform.reset()
                               this.$Progress.finish()
@@ -4289,9 +4304,9 @@
                             this.$store.dispatch( "organisation")
                             this.$store.dispatch( "about")
                             this.$store.dispatch( "service")
-                            this.$store.dispatch( "feature")
+                            this.$store.dispatch( "features")
                             this.$store.dispatch( "servicemodel")
-                            this.$store.dispatch( "advert")
+                            this.$store.dispatch( "adverts")
                          $('#ServiceModelModal').modal('hide')
                          toast({
                             type: 'success',
@@ -4307,6 +4322,45 @@
                             title: 'There was something wrong'
                             })
                         })
+            },
+            deleteServiceModel(id){
+                Swal({
+                    title: 'Are you sure?',
+                    text: "You won't be able to revert this!",
+                    type: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Yes, delete it!'
+                })
+                .then((result) => {
+                    if (result.value) {
+                    //  console.log('delete user', id)
+                        this.$Progress.start();
+                        this.servicemodelform.get('/servicemodel/delete/'+id)
+                            .then(()=>{
+                            toast({
+                            type: 'success',
+                            title: 'Servicemodel Deleted successfully'
+                            })
+                            this.$store.dispatch( "organisation")
+                            this.$store.dispatch( "about")
+                            this.$store.dispatch( "service")
+                            this.$store.dispatch( "features")
+                            this.$store.dispatch( "servicemodel")
+                            this.$store.dispatch( "adverts")
+
+                            this.$Progress.finish();
+                        })
+                        .catch(()=>{
+                            this.$Progress.fail();
+                            toast({
+                            type: 'error',
+                            title: 'There was something wrong'
+                            })
+                        })
+                     }
+                })
             },
         },
         watch:{

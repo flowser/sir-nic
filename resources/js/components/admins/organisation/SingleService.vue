@@ -47,7 +47,7 @@
                                         <img class="card-img-top " :src="servicemodelLoadImage(servicemodel.image)" style="width:100%;height:150px;">
                                     <div class="card-body" >
                                         <h5 class="card-title text-center">{{servicemodel.title}}</h5>
-                                        <p style="margin-bottom:-0.5em" class="card-text">{{servicemodel.details | sortlength(80, "...") }}</p>
+                                        <p style="margin-bottom:-0.5em" class="card-text">{{servicemodel.details }}</p>
                                         <!-- <p style="margin-bottom:-0.5em" class="card-text">{{servicemodel.why | sortlength(80, "...") }}</p> -->
                                     </div>
                                         <!-- <router-link  :to="`/servicemodel/${servicemodel.id}`" class="pull-right blue">Read More <i class="icon-angle-right"></i></router-link> -->
@@ -71,9 +71,9 @@
                                          </span>
                                      </div>
                                   </div>
-                              </div>
+                            </div>
                               <ul class="pagination" style="padding: 0px;margin: 0px;">
-                             </ul>
+                              </ul>
                         </div>
                     </div>
                 </div>
@@ -250,7 +250,7 @@
                                 })
                     },
                     addServiceModel(){
-                        console.log(this.$route.params.id)
+                        console.log('misss mme')
                         this.$Progress.start();
                         this.servicemodelform.patch('/servicemodel/'+this.$route.params.id)
                             .then((response)=>{
@@ -283,6 +283,7 @@
                                     this.$store.dispatch( "service")
                                     this.$store.dispatch('ServiceModelsByServiceId', this.$route.params.id)
                                 this.servicemodelform.reset()
+                                this.editmodelServiceModel = false;
                                 $('#ServiceModelModal').modal('hide')
                                 toast({
                                     type: 'success',

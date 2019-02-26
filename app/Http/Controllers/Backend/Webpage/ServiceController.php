@@ -186,6 +186,7 @@ class ServiceController extends Controller
      */
     public function update(Request $request, $id)
     {
+        // return $request;
         $service = Service::findOrFail($id);
         $this->validate($request,[
             'title' => 'required|min:2',
@@ -193,9 +194,11 @@ class ServiceController extends Controller
             'service_details' => 'required',
         ]);
 
+
         $service->title = $request ->title;
         $service->service_title = $request ->service_title;
         $service->service_details = $request ->service_details;
+
         //getting Organisation $user, service_id
         if (auth()->check()) {
             if (auth()->user()->hasRole('Organisation Director')) {
@@ -227,29 +230,33 @@ class ServiceController extends Controller
                 $service->user_id = $user ->id;
             }
         }
-        $currentservice_image =  $service->service_image;
 
-         //processing service_image nme and size
-        if($request->service_image != $currentservice_image){
-            $Path = public_path()."/assets/organisation/img/website/services";
+        //getting previous service_image
+        $currentImage = $service->service_image;
 
-            $currentService_image = $Path. $currentservice_image;
+        //processing service_image nme and size
+        if($request->service_image != $currentImage){
+            $Path = public_path()."/assets/organisation/img/website/services/";
+
+            // return $request->service_image;
+            $S_currentImage = $Path. $currentImage;
             //deleting if exists
-                if(file_exists($currentService_image)){
-                    @unlink($currentService_image);
+                if(file_exists($S_currentImage)){
+                    @unlink($S_currentImage);
+
                 }
                 $strpos = strpos($request->service_image, ';'); //positionof image name semicolon
                 $sub = substr($request->service_image, 0, $strpos);
                 $ex = explode('/', $sub)[1];
                 $name = time().".".$ex;
 
-                $img = Image::make($request->service_image);
-                $img ->save($Path.'/'.$name);
-
+                 $img = Image::make($request->service_image);
+                 $img ->save($Path.'/'.$name);
+             //end processing
+                 $service->service_image = $name;
         }else{
-            $name = $service->service_image;
+            $service->service_image = $request->service_image;
         }
-        $service->service_image = $name;
         $service->save();
     }
 

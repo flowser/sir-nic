@@ -234,6 +234,7 @@ class OrgEmployeeController extends Controller
      */
     public function update(Request $request, $id)
     {
+
         $this->validate($request,[
             'first_name'  =>  'required',
             'last_name'  =>  'required',
@@ -276,10 +277,12 @@ class OrgEmployeeController extends Controller
                $ps_Path = public_path()."/assets/organisation/img/employees/passports/";
 
                $S_currentPassport = $ps_Path. $currentPassport;
+            //   return $S_currentPassport;
                //deleting if exists
                    if(file_exists($S_currentPassport)){
                        @unlink($S_currentPassport);
                    }
+                //    return $S_currentPassport;
                    $passport = $request->photo;
 
                    $ps_strpos = strpos($passport, ';'); //positionof image name semicolon
