@@ -113,16 +113,11 @@ class PermissionRoleTableSeeder extends Seeder
                       // Create Roles
         $superadmin = Role::create(['name' => 'Organisation Superadmin']);
         $orgdirector = Role::create(['name' => 'Organisation Director']);
-        $bureaudirector = Role::create(['name' => 'Bureau Director']);
+        $orgemployee = Role::create(['name' => 'Organisation Employee']);
         $orgadmin = Role::create(['name' => 'Organisation Admin']);
-        $orgaaccountant = Role::create(['name' => 'Organisation Accountant']);
+        $orgaccountant = Role::create(['name' => 'Organisation Accountant']);
 
-        $bureausuperadmin = Role::create(['name' => 'Bureau Superadmin']);
-        $bureauadmin = Role::create(['name' => 'Bureau Admin']);
-        $bureauaccountant = Role::create(['name' => 'Bureau Accountant']);
 
-        $househelp = Role::create(['name' => 'Househelp']);
-        $househelpkin = Role::create(['name' => 'Househelp Kin']);
         $client = Role::create(['name' => 'Client']);
 
 
@@ -150,15 +145,21 @@ class PermissionRoleTableSeeder extends Seeder
                     //Organisation Reviews
                     'View Organisation Reviews',	'Approve Organisation Reviews',
                     //Organisation Requests
-                    'View Organisation Requests', 'Approve Organisation Requests',
-                     //Bureaus
-                    'View All Bureaus','Add Bureaus', 'Edit All Bureaus',	'Delete Bureaus', 'Disable Bureaus',
-                     //Bureau Superadmin
-                     'Add Bureau Superadmin', 'View Bureau Superadmin','Edit Bureau Superadmin', 'Delete Bureau Superadmin', 'Disable Bureau Superadmin'
+                    'View Organisation Requests', 'Approve Organisation Requests'
+                  );
+        $orgemployee->givePermissionTo(
+                    'View Backend',
+                     //own profile
+                   'View', 'Edit',
+                    'View Organisation Accounts',	'Edit Organisation Accounts',
+                    //Organisation Reviews
+                    'View Organisation Reviews',	'Approve Organisation Reviews',
+                    //Organisation Requests
+                    'View Organisation Requests', 'Approve Organisation Requests'
                   );
 
                   //organisation Accountant
-        $orgaaccountant->givePermissionTo(
+        $orgaccountant->givePermissionTo(
                     'View Backend',
                      //own profile
                    'View', 'Edit',
@@ -166,55 +167,7 @@ class PermissionRoleTableSeeder extends Seeder
                   );
 
                   //bureau Superadmin
-        $bureausuperadmin->givePermissionTo(
-                  'View Backend',
-                   //own profile
-                   'View', 'Edit',
-                   //Bureau Admin
-                  'Add Bureau Admin', 'View Bureau Admin', 'Edit Bureau Admin', 'Delete Bureau Admin', 'Disable Bureau Admin',
-                   //Bureau accounts cashier
-                  'View Bureau Accounts',
-                   //Bureau Reviews
-                  'View Bureau Reviews',
-                   //Bureau Requests
-                  'View Bureau Requests'
-                );
-                  //bureau Director
-        $bureaudirector->givePermissionTo(
-                  'View Backend',
-                   //own profile
-                   'View', 'Edit',
-                   //Bureau Admin
-                  'Add Bureau Admin', 'View Bureau Admin', 'Edit Bureau Admin', 'Delete Bureau Admin', 'Disable Bureau Admin',
-                   //Bureau accounts cashier
-                  'View Bureau Accounts',
-                   //Bureau Reviews
-                  'View Bureau Reviews',
-                   //Bureau Requests
-                  'View Bureau Requests'
-                );
-                //bureau admin
-        $bureauadmin->givePermissionTo(
-                  'View Backend',
-                   //own profile
-                   'View', 'Edit',
-                  //Househelps
-                  'View All Houshelps','Add Househelps', 'Edit Househelps','Disable Househelps',
-                  //Househelp Feedbacks
-                  'View Househelp Reviews','Edit Househelp Reviews', 'Approve Househelp Reviews',
-                  //Househelp Reviews
-                  'View Househelp Requests','Approve Househelp Requests'
-                );
-                //bureau accountant
-        $bureauaccountant->givePermissionTo(
-                  'View Backend',
-                   //own profile
-                   'View', 'Edit',
-                  //Bureau accounts cashier
-                  'View Bureau Accounts', 'Edit Bureau Accounts'
-                );
-        $househelp->givePermissionTo('View Frontend', 'View', 'Edit');
-        $househelpkin->givePermissionTo('View Frontend', 'View', 'Edit');
+
         $client->givePermissionTo('View Frontend', 'View', 'Edit');
 
         $this->enableForeignKeys();

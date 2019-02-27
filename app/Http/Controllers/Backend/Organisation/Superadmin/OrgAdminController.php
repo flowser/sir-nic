@@ -175,7 +175,7 @@ class OrgAdminController extends Controller
                      //end processing
                     $id_photo_back = $bs_id_name;
                 }
-                $position_id = Position::find(1)->id;
+                $position_id = Position::find(3)->id;
                 $gender_id = Gender::find(1)->id;
             if($user){
                 $organisation->organisationadmins()->save($user, [

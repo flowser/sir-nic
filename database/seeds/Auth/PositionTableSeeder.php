@@ -13,11 +13,12 @@ class PositionTableSeeder extends Seeder
     public function run()
     {
         Position::create(['name'  => 'Director',]);
-        Position::create(['name'  => 'Assistant',]);
+        Position::create(['name'  => 'Assistandt Director',]);
         Position::create(['name'  => 'Admin',]);
         Position::create(['name'  => 'Accountant',]);
         Position::create(['name'  => 'ICT Engineer',]);
         Position::create(['name'  => 'Secretary',]);
+        Position::create(['name'  => 'Driver',]);
         Position::create(['name'  => 'client',]);
     }
 }

@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Intervention\Image\Facades\Image;
+use App\Models\Organisation\Organisation;
 use App\Models\Standard\Webservices\Feature;
 
 
@@ -64,36 +65,12 @@ class FeatureController extends Controller
             $feature->title = $request ->title;
             $feature->details = $request ->details;
 
-            if (auth()->check()) {
-                if (auth()->user()->hasRole('Organisation Director')) {
-                    $organisation= Auth::user()-> organisationdirectors()->first();
-                     //then
-                     $user = Auth::user();
-                     $feature->organisation_id = $organisation ->id;
-                     $feature->user_id = $user ->id;
-                }
-                if (auth()->user()->hasRole('Organisation Superadmin')) {
-                    $organisation= Auth::user()-> organisationadmins()->first();
+            $organisation= Organisation::first();
 
-                     $user = Auth::user();
-                     $feature->organisation_id = $organisation ->id;
-                     $feature->user_id = $user ->id;
-                }
-                if (auth()->user()->hasRole('Organisation Admin')) {
-                    $organisation= Auth::user()-> organisationadmins()->first();
-                     //then
-                     $user = Auth::user();
-                     $feature->organisation_id = $organisation ->id;
-                     $feature->user_id = $user ->id;
-                }
-                if (auth()->user()->hasRole('Organisation Accountant')) {
-                    $organisation= Auth::user()-> organisationadmins()->first();
-                    //then
-                    $user = Auth::user();
-                    $feature->organisation_id = $organisation ->id;
-                    $feature->user_id = $user ->id;
-                }
-            }
+                //then
+                $user = Auth::user();
+                $feature->organisation_id = $organisation ->id;
+                $feature->user_id = $user ->id;
 
             $strpos = strpos($request->image, ';'); //positionof image name semicolon
             $sub = substr($request->image, 0, $strpos);
@@ -173,36 +150,12 @@ class FeatureController extends Controller
         $feature->title = $request ->title;
         $feature->details = $request ->details;
         //getting Organisation $user, about_id
-        if (auth()->check()) {
-            if (auth()->user()->hasRole('Organisation Director')) {
-                $organisation= Auth::user()-> organisationdirectors()->first();
-                 //then
-                 $user = Auth::user();
-                 $feature->organisation_id = $organisation ->id;
-                 $feature->user_id = $user ->id;
-            }
-            if (auth()->user()->hasRole('Organisation Superadmin')) {
-                $organisation= Auth::user()-> organisationadmins()->first();
+                $organisation= Organisation::first();
 
-                 $user = Auth::user();
-                 $feature->organisation_id = $organisation ->id;
-                 $feature->user_id = $user ->id;
-            }
-            if (auth()->user()->hasRole('Organisation Admin')) {
-                $organisation= Auth::user()-> organisationadmins()->first();
-                 //then
-                 $user = Auth::user();
-                 $feature->organisation_id = $organisation ->id;
-                 $feature->user_id = $user ->id;
-            }
-            if (auth()->user()->hasRole('Organisation Accountant')) {
-                $organisation= Auth::user()-> organisationadmins()->first();
                 //then
                 $user = Auth::user();
                 $feature->organisation_id = $organisation ->id;
                 $feature->user_id = $user ->id;
-            }
-        }
 
         //getting previous image
         $currentImage = $feature->image;

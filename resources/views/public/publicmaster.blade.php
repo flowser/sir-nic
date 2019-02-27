@@ -51,7 +51,10 @@
                 flex: 1;
                 padding: 16px;
               }
+
+
       </style>
+
       <!--====== MAIN STYLESHEETS ======-->
       <link href="{{URL::asset('front_theme/style.css')}}" rel="stylesheet">
       <link href="{{URL::asset('front_theme/css/responsive.css')}}" rel="stylesheet">
@@ -78,62 +81,59 @@
                     <div class="mainmenu-area" id="mainmenu-area">
                         <div class="mainmenu-area-bg"></div>
                         <!--Navbar-->
-<nav class="navbar navbar-expand-lg navbar-dark primary-color">
+                        <nav class="navbar navbar-expand-lg navbar-dark primary-color">
+                            <div class="container">
+                                <!-- Navbar brand -->
+                                <a class="navbar-brand" href="#">Navbar</a>
 
-  <div class="container">
+                                <!-- Collapsible content -->
+                                <div class="collapse navbar-collapse" id="basicExampleNav">
+                                <!-- Links -->
+                                <ul class="navbar-nav mr-auto">
+                                    <li class="nav-item active">
+                                        <router-link to="/pub" class="nav-link"> Home
+                                            <span class="sr-only">(current)</span>
+                                         </router-link>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#">About</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#">Services</a>
+                                    </li>
+                                    {{-- <!-- Dropdown -->
+                                    <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
+                                        aria-expanded="false">Dropdown</a>
+                                    <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
+                                        <a class="dropdown-item" href="#">Action</a>
+                                        <a class="dropdown-item" href="#">Another action</a>
+                                        <a class="dropdown-item" href="#">Something else here</a>
+                                    </div>
+                                    </li> --}}
+                                </ul>
+                                <!-- Links -->
 
-    <!-- Navbar brand -->
-    <a class="navbar-brand" href="#">Navbar</a>
-
-    <!-- Collapse button -->
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#basicExampleNav"
-      aria-controls="basicExampleNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <!-- Collapsible content -->
-    <div class="collapse navbar-collapse" id="basicExampleNav">
-
-      <!-- Links -->
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item active">
-          <a class="nav-link" href="#">Home
-            <span class="sr-only">(current)</span>
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Features</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Pricing</a>
-        </li>
-
-        <!-- Dropdown -->
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
-            aria-expanded="false">Dropdown</a>
-          <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
-            <a class="dropdown-item" href="#">Action</a>
-            <a class="dropdown-item" href="#">Another action</a>
-            <a class="dropdown-item" href="#">Something else here</a>
-          </div>
-        </li>
-
-      </ul>
-      <!-- Links -->
-
-      <form class="form-inline">
-        <div class="md-form my-0">
-          <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
-        </div>
-      </form>
-    </div>
-    <!-- Collapsible content -->
-
-  </div>
-
-</nav>
-<!--/.Navbar-->
+                                {{-- <form class="form-inline">
+                                    <div class="md-form my-0">
+                                    <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+                                    </div>
+                                </form> --}}
+                                <ul class="nav navbar-nav navbar-right" style="margin: 11px;">
+                                        @if (Route::has('login'))
+                                           @guest
+                                               <li style="padding-right: 10px;"><a href="{{ route('login') }}" class="btn btn-success">Login</a></li>
+                                           @endguest
+                                                   {{-- <li style="padding-right: 10px;"><a href="#" class="btn btn-warning">Register</a></li> --}}
+                                           {{-- @if (Route::has('register'))
+                                                   <li style="padding-right: 10px;"><a href="#" class="btn btn-default">Link</a></li>
+                                            @endif --}}
+                                        @endif
+                                </div>
+                                <!-- Collapsible content -->
+                            </div>
+                        </nav>
+                        <!--/.Navbar-->
 
                     </div>
                     <!--END MAINMENU AREA END-->

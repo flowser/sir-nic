@@ -6,52 +6,18 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Intervention\Image\Facades\Image;
+use App\Models\Organisation\Organisation;
 use App\Models\Standard\Webservices\Service;
 
 class ServiceController extends Controller
 {
     public function index()
     {
-        if (auth()->check()) {
-            if (auth()->user()->hasRole('Organisation Director')) {
-                $organisation= Auth::user()-> organisationdirectors()->first();
-                 //then
-                 $service = Service::with('user', 'organisation', 'servicemodels')
-                ->where('organisation_id', $organisation->id)
-                ->get();
-                return response()-> json([
-                    'service' => $service,
-                ], 200);
-            }
-            if (auth()->user()->hasRole('Organisation Superadmin')) {
-                $organisation= Auth::user()-> organisationadmins()->first();
-
-                 $service = Service::with('user', 'organisation', 'servicemodels')
-                ->where('organisation_id', $organisation->id)
-                ->get();
-                return response()-> json([
-                    'service' => $service,
-                ], 200);
-            }
-            if (auth()->user()->hasRole('Organisation Admin')) {
-                $organisation= Auth::user()-> organisationadmins()->first();
-                 $service = Service::with('user', 'organisation', 'servicemodels')
-                ->where('organisation_id', $organisation->id)
-                ->get();
-                return response()-> json([
-                    'service' => $service,
-                ], 200);
-            }
-            if (auth()->user()->hasRole('Organisation Accountant')) {
-                $organisation= Auth::user()-> organisationadmins()->first();
                 $service = Service::with('user', 'organisation', 'servicemodels')
-                ->where('organisation_id', $organisation->id)
                 ->get();
                 return response()-> json([
                     'service' => $service,
                 ], 200);
-            }
-        }
 
     }
     public function organisations()//all services linked to organisation
@@ -98,36 +64,12 @@ class ServiceController extends Controller
         $service->service_details = $request ->service_details;
 
         //getting Organisation $user
-        if (auth()->check()) {
-            if (auth()->user()->hasRole('Organisation Director')) {
-                $organisation= Auth::user()-> organisationdirectors()->first();
-                 //then
-                 $user = Auth::user();
-                 $service->organisation_id = $organisation ->id;
-                 $service->user_id = $user ->id;
-            }
-            if (auth()->user()->hasRole('Organisation Superadmin')) {
-                $organisation= Auth::user()-> organisationadmins()->first();
+                 $organisation= Organisation::first();
 
                  $user = Auth::user();
                  $service->organisation_id = $organisation ->id;
                  $service->user_id = $user ->id;
-            }
-            if (auth()->user()->hasRole('Organisation Admin')) {
-                $organisation= Auth::user()-> organisationadmins()->first();
-                 //then
-                 $user = Auth::user();
-                 $service->organisation_id = $organisation ->id;
-                 $service->user_id = $user ->id;
-            }
-            if (auth()->user()->hasRole('Organisation Accountant')) {
-                $organisation= Auth::user()-> organisationadmins()->first();
-                //then
-                $user = Auth::user();
-                $service->organisation_id = $organisation ->id;
-                $service->user_id = $user ->id;
-            }
-        }
+
 
         $strpos = strpos($request->service_image, ';'); //positionof image name semicolon
         $sub = substr($request->service_image, 0, $strpos);
@@ -200,36 +142,11 @@ class ServiceController extends Controller
         $service->service_details = $request ->service_details;
 
         //getting Organisation $user, service_id
-        if (auth()->check()) {
-            if (auth()->user()->hasRole('Organisation Director')) {
-                $organisation= Auth::user()-> organisationdirectors()->first();
-                 //then
-                 $user = Auth::user();
-                 $service->organisation_id = $organisation ->id;
-                 $service->user_id = $user ->id;
-            }
-            if (auth()->user()->hasRole('Organisation Superadmin')) {
-                $organisation= Auth::user()-> organisationadmins()->first();
+        $organisation= Organisation::first();
 
                  $user = Auth::user();
                  $service->organisation_id = $organisation ->id;
                  $service->user_id = $user ->id;
-            }
-            if (auth()->user()->hasRole('Organisation Admin')) {
-                $organisation= Auth::user()-> organisationadmins()->first();
-                 //then
-                 $user = Auth::user();
-                 $service->organisation_id = $organisation ->id;
-                 $service->user_id = $user ->id;
-            }
-            if (auth()->user()->hasRole('Organisation Accountant')) {
-                $organisation= Auth::user()-> organisationadmins()->first();
-                //then
-                $user = Auth::user();
-                $service->organisation_id = $organisation ->id;
-                $service->user_id = $user ->id;
-            }
-        }
 
         //getting previous service_image
         $currentImage = $service->service_image;

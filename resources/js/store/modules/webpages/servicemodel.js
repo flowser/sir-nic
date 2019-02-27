@@ -6,6 +6,7 @@ const state = {
     servicemodels:[],
     servicemodelsbyid:[],
     singleservicemodel:[],
+    latestServiceModels:[],
   },
   getters = {
     ServiceModel(state){
@@ -19,6 +20,9 @@ const state = {
     },
     SingleServiceModel(state){
         return state.singleservicemodel;
+    },
+    latestServiceModels(state){
+        return state.latestServiceModels;
     },
   }
 const actions = {
@@ -39,7 +43,6 @@ const actions = {
     ServiceModelById(context, payload){
         axios.get('/servicemodel/show/'+payload)
               .then((response)=>{
-                  console.log('ffffffffffff');
                   context.commit('singleservicemodel', response.data.singleservicemodel);
               });
     },
@@ -49,7 +52,21 @@ const actions = {
             console.log( response.data.servicemodelsbyid);
             context.commit('servicemodelsbyid', response.data.servicemodelsbyid);
         });
-    }
+    },
+    latestServiceModels(context){
+        axios.get('/servicemodel/latest/')
+        .then((response)=>{
+            console.log( response.data);
+            context.commit(' latestServiceModels', response.data.ervicemodels);
+        });
+    },
+    SearchServiceModel(context, payload){
+        axios.get('/blogcourse/courses/search?s='+payload)
+            .then((response)=>{
+                console.log(response.data)
+                context.commit('SearchServiceModels', response.data.servicemodels)
+            })
+      },
   }
 
 const mutations = {
@@ -64,7 +81,13 @@ const mutations = {
     },
     servicemodelsbyid(state, data){
         return state.servicemodelsbyid = data;
-      },
+    },
+    latestServiceModels(state, data){
+      return state.latestServiceModels = data;
+    },
+    SearchServiceModels(state, data){
+      return state.servicemodels = data;
+    },
   }
 
 export default {

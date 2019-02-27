@@ -175,7 +175,7 @@ class OrgEmployeeController extends Controller
                      //end processing
                     $id_photo_back = $bs_id_name;
                 }
-                $position_id = Position::find(1)->id;
+                $position_id = Position::find(7)->id;
                 $gender_id = Gender::find(1)->id;
             if($user){
                 $organisation->organisationemployees()->save($user, [
@@ -354,8 +354,6 @@ class OrgEmployeeController extends Controller
            }
 
        if($user){
-           $position_id = Position::find(1)->id;
-           $gender_id = Gender::find(1)->id;
 
            $id_no = $request-> id_no;
            $about_me = $request-> about_me;
@@ -367,7 +365,7 @@ class OrgEmployeeController extends Controller
            $constituency_id = $request-> constituency_id;
            $ward_id = $request-> ward_id;
 
-           $position_id = Position::find(1)->id;
+           $position_id = Position::find(7)->id;
            $gender_id = Gender::find(1)->id;
 
            DB::table('organisation_employee')->where('user_id', $user->id)

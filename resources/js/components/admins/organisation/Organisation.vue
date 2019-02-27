@@ -107,6 +107,7 @@
                                         </button>
                                 </div>
                             </div>
+
                             <div class="card-body">
                                  <div class="row" v-for="director in Organisation.organisationdirectors" :key="director.id">
                                     <div class="col" style="padding: 3px;">
@@ -343,23 +344,23 @@
                                         </div>
                                     </div>
                                     <!-- about us -->
-                                     <div v-for="about in About" :key="about.id">
+                                     <div >
                                         <div class="card" >
                                             <div class="row">
                                                 <div class="col-md-4" >
                                                     <div class="card-body">
-                                                        <img :src="aboutLoadFrontImage(about.front_image)" alt="" width="250px" >
+                                                        <img :src="aboutLoadFrontImage(About.front_image)" alt="" width="250px" >
                                                     </div>
                                                 </div>
                                                 <div class="col-md-8 " >
                                                     <div class="card text-white bg-danger" >
                                                             <div class="card-header">
-                                                                <h5 class="card-title text-center">{{about.title}}</h5>
+                                                                <h5 class="card-title text-center">{{About.title}}</h5>
                                                             </div>
                                                             <div class="card-body">
-                                                                <h6 class="card-subtitle mb-2 text-muted text-center">{{about.subtitle}}</h6>
+                                                                <h6 class="card-subtitle mb-2 text-muted text-center">{{About.subtitle}}</h6>
                                                                 <h5 class="card-title text-center">Why Choose US</h5>
-                                                                <p class="card-text">{{about.why_choose_us}}</p>
+                                                                <p class="card-text">{{About.why_choose_us}}</p>
                                                             </div>
                                                     </div>
                                                 </div>
@@ -371,7 +372,7 @@
                                                         <h5 class="card-title text-center">Who We Are</h5>
                                                         </div>
                                                         <div class="card-body">
-                                                            <p class="card-text">{{about.why_choose_us}}</p>
+                                                            <p class="card-text">{{About.why_choose_us}}</p>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -381,14 +382,14 @@
                                                             <h5 class="card-title text-center">What We Do</h5>
                                                         </div>
                                                         <div class="card-body">
-                                                            <p class="card-text">{{about.what_we_do}}</p>
+                                                            <p class="card-text">{{About.what_we_do}}</p>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="card-body">
                                                 <div class="float-right">
-                                                    <a href="" class="card-link" @click.prevent="editAboutModal(about.id)">
+                                                    <a href="" class="card-link" @click.prevent="editAboutModal(About.id)">
                                                          <i class="fa fa-edit blue"> Edit</i>
                                                     </a>
                                                     <!-- <a href="" class="card-link" @click.prevent="deleteAbout(about.id)">
@@ -396,8 +397,8 @@
                                                     </a> -->
                                                 </div>
                                                 <div class="float-left">
-                                                    <a href="#about_us" class="card-link">Updated BY: {{about.user.full_name}}</a>
-                                                    <a href="#about_us" class="card-link">Updated On: {{about.updated_at | dateformat}}</a>
+                                                    <a href="#about_us" class="card-link">Updated BY: {{About.user.full_name}}</a>
+                                                    <a href="#about_us" class="card-link">Updated On: {{About.updated_at | dateformat}}</a>
                                                 </div>
                                             </div>
                                         </div>
