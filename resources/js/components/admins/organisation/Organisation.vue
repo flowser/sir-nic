@@ -8,7 +8,7 @@
                     <!-- <button class="btn btn-success" @click.prevent="newOrganisationModal()" >Add Organisation -->
                         <!-- <i class="fas fa-plus fw"></i> -->
                     <!-- </button> -->
-                <!-- </div> --> -->
+                <!-- </div> -->
                 <div class="card card-widget widget-user" >
                    <!-- Add the bg color to the header using any of the bg-* classes -->
                     <div class="widget-user-header text-white" style="background: url('assets/organisation/img/background/background-1.jpg')
