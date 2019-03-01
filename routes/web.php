@@ -33,12 +33,12 @@ use App\Http\Controllers\Backend\Organisation\Superadmin\OrganisationController;
 |
 */
 
-Route::get('/', function () {
-    return view('public.publicmaster');
-});
-// Route::get('/', [PublicController::class, 'index'])->name('public.index');
+// Route::get('/', function () {
+//     return view('public.publicmaster');
+// });
+Route::get('/', [PublicController::class, 'index'])->name('public.index');
 
-// Route::get('/', 'HomeController@index')->name('adminhome');
+// Route::get('/{anypath}', 'HomeController@index')->where('path','.*');
 
 Auth::routes();
 
@@ -310,13 +310,16 @@ Route::get('/admin_home', 'HomeController@index')->name('adminhome');
 
                 // servicemodel
         Route::get('servicemodel/get', [ServiceModelController::class, 'index'])->name('servicemodel.index');
-        Route::get('servicemodel/get/list', [ServiceModelController::class, 'organisations'])->name('servicemodel.list-index');
+        Route::get('servicemodel/latest', [ServiceModelController::class, 'latestservicemodels'])->name('servicemodel.latest');
         Route::patch('servicemodel/{servicemodel}', [ServiceModelController::class, 'store'])->name('servicemodel.store');
     //     /*
     //      * Specifics
     //      */
         Route::get('servicemodel/show/{servicemodel}', [ServiceModelController::class, 'show'])->name('servicemodel.show');
-        Route::get('servicemodel/get/{servicemodel}', [ServiceModelController::class, 'ServiceModelByServiceID'])->name('servicemodel.ServiceModelByServiceID');
+        Route::get('servicemodel/fetch/{servicemodel}', [ServiceModelController::class, 'ServiceModelsByServiceID'])->name('servicemodel.ServiceModelsByServiceID');
+        Route::get('servicemodel/fetch/latest/{servicemodel}', [ServiceModelController::class, 'LatestServiceModelsByServiceID'])->name('servicemodel.latestServiceModelByServiceID');
+        Route::get('servicemodel/fetch/latest/singlemodel/{servicemodel}', [ServiceModelController::class, 'LatestServiceModelsBySingleModelID'])->name('servicemodel.LatestServiceModelsBySingleModelID');
+        Route::get('servicemodel/search', [ServiceModelController::class, 'search'])->name('servicemodel.search');
         Route::get('servicemodel/edit/{servicemodel}', [ServiceModelController::class, 'edit'])->name('servicemodel.edit');
         Route::patch('servicemodel/update/{servicemodel}', [ServiceModelController::class, 'update'])->name('servicemodel.update');
         Route::get('servicemodel/delete/{servicemodel}/', [ServiceModelController::class, 'destroy'])->name('servicemodel.destroy');

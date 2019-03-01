@@ -26,15 +26,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <li class="nav-item">
                 <a class="nav-link" data-widget="pushmenu" href="#"><i class="fa fa-bars"></i></a>
             </li>
-            {{--<li class="nav-item d-none d-sm-inline-block">--}}
-                {{--<a href="index3.html" class="nav-link">Home</a>--}}
-            {{--</li>--}}
-            {{--<li class="nav-item d-none d-sm-inline-block">--}}
-                {{--<a href="#" class="nav-link">Contact</a>--}}
-            {{--</li>--}}
         </ul>
 
-        <!-- SEARCH FORM -->
+        {{-- <!-- SEARCH FORM -->
         <form class="form-inline ml-3">
             <div class="input-group input-group-sm">
                 <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search">
@@ -137,7 +131,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#"><i
                             class="fa fa-th-large"></i></a>
             </li>
-        </ul>
+        </ul> --}}
     </nav>
     <!-- /.navbar -->
 
@@ -155,15 +149,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <!-- Sidebar user panel (optional) -->
             <div class="user-panel mt-3 pb-3 mb-3 d-flex">
                 <div class="image">
-                    <img src="{{URL::asset('assets/admin/default/admin.png')}}" class="img-circle elevation-2" alt="User Image">
+                    <img src="assets/organisation/img/admins/passports/{{$logged_user->photo}}" class="img-circle elevation-2" alt="User Image">
                 </div>
 
                 <div class="info">
                 <a href="" class="d-block">
-                         {{ Auth::user()->name }} <br>
-                         {{ Auth::user()->user_type }}<br>
-                         {{-- {{ Auth::user()->email }}<br>
-                         {{ Auth::user()->created_at }}<br> --}}
+                        {{$logged_user->full_name}}<br>
+                        {{$logged_user->position_name}}<br>
                         </a>
                 </div>
             </div>
@@ -173,14 +165,14 @@ scratch. This page gets rid of all links and provides the needed markup only.
              <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                 <!-- Add icons to the links using the .nav-icon class
                      with font-awesome or any other icon font library -->
-                <li class="nav-item">
+                {{-- <li class="nav-item">
                     <router-link to="/home" class="nav-link">
                          <i class="nav-icon green fas fa-cog"></i>
                              <p> Dashboard </p>
                     </router-link>
-                </li>
+                </li> --}}
 
-                <li class="nav-item has-treeview">
+                {{-- <li class="nav-item has-treeview">
                     <a href="#" class="nav-link ">
                         <i class="nav-icon  red fas fa-cog"></i>
                         <p>Management
@@ -202,7 +194,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                             </router-link>
                         </li>
                     </ul>
-                </li>
+                </li> --}}
                 <li class="nav-item">
                     <router-link to="/settings" class="nav-link">
                          <i class="nav-icon red fas fa-tools"></i>
@@ -269,10 +261,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <footer class="main-footer">
         <!-- To the right -->
         <div class="float-right d-none d-sm-inline">
-            Anything you want
+            Life is Good
         </div>
         <!-- Default to the left -->
-        <strong>Copyright &copy; 2014-2018 <a href="https://adminlte.io">AdminLTE.io</a>.</strong> All rights reserved.
+        <strong>Copyright &copy; 2011-2020 <a href="https://teifinnovate.foundation">Marines Graphics</a>.</strong> All rights reserved.
     </footer>
 </div>
 <!-- ./wrapper -->

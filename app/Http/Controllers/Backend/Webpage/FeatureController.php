@@ -25,9 +25,9 @@ class FeatureController extends Controller
     public function organisations()//all features linked to organisation
     {
         $features = Feature::with('user', 'organisation')
-                    // ->where('abouts.organisation_id', $organisation->id)
+                    // ->where('features.organisation_id', $organisation->id)
                     ->get();
-        // dd($about);
+        // dd($feature);
         return response()-> json([
         'features' => $features,
         ], 200);
@@ -66,7 +66,10 @@ class FeatureController extends Controller
             $feature->details = $request ->details;
 
             $organisation= Organisation::first();
+<<<<<<< HEAD
 
+=======
+>>>>>>> everything ll set before we run nm run production
                 //then
                 $user = Auth::user();
                 $feature->organisation_id = $organisation ->id;
@@ -149,9 +152,14 @@ class FeatureController extends Controller
 
         $feature->title = $request ->title;
         $feature->details = $request ->details;
+<<<<<<< HEAD
         //getting Organisation $user, about_id
                 $organisation= Organisation::first();
 
+=======
+        //getting Organisation $user, feature_id
+        $organisation= Organisation::first();
+>>>>>>> everything ll set before we run nm run production
                 //then
                 $user = Auth::user();
                 $feature->organisation_id = $organisation ->id;

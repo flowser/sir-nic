@@ -10,6 +10,7 @@ use App\Models\Standard\Webservices\About;
 use App\Models\Standard\Webservices\Advert;
 use App\Models\Standard\Webservices\Feature;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use App\Models\Organisation\OrganisationAdmin;
 use App\Models\Standard\Webservices\ServiceModel;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
@@ -194,10 +195,11 @@ class User extends Authenticatable
 
 
 
-    // public function clients()
-    // {
-    //     return $this->hasMany(Client::class);
-    // }
+    public function organisationadmin()
+    {
+        return $this->hasOne(OrganisationAdmin::class);
+
+    }
     public function abouts()
     {
         return $this->hasMany(About::class);

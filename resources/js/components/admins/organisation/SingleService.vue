@@ -6,13 +6,14 @@
             <div class="widget-user-header text-white" style="background: url('assets/organisation/img/background/background-1.jpg')
 
                     center center;width:100%;height:300px">
+
                 <div class="clearfix">
                     <span class="float-left">
                         <h3 class="widget-user-username">{{SingleService.title}}</h3>
                     </span>
                     <span class="float-right">
                         <h5 class="widget-user-desc" style="margin-bottom:0">{{SingleService.service_title}}</h5>
-                        <p class="widget-user-desc" style="margin-bottom:0">{{SingleService.details}}</p>
+                        <p class="widget-user-desc" style="margin-bottom:0">{{SingleService.service_details}}</p>
                         <p style="margin-bottom:-0.5em">
                             <small class="text-muted" v-if="SingleService.user">Updated By: {{SingleService.user.full_name}}</small>
                         </p>
@@ -23,7 +24,8 @@
                 </div>
             </div>
             <div class="widget-user-image" style="top:70px;">
-                <img :src="serviceLoadImage(SingleService.image)"  class="border-0" alt="" style="width:160px;">
+                <img :src="serviceLoadImage(SingleService.service_image)"  class="border-0" alt="" style="width:160px;">
+
             </div>
         </div>
         <div class="container-fluid">
@@ -34,7 +36,7 @@
                              <a href="#ServiceModel">Service Model Settings</a>
                         </h3>
                         <div class="card-tools">
-                            <router-link  to="/settings" class="pull-left btn btn-success">Home Settings 
+                            <router-link  to="/settings" class="pull-left btn btn-success">Home Settings
                                 <i class="icon-angle-right"></i>
                             </router-link>
                             <button class="pul-right btn btn-success" @click.prevent="newServiceModelModal()" >Add new Service Models
@@ -44,8 +46,8 @@
                     </div>
                     <div class="card-body">
                         <div class="row">
-                            <!-- {{ServiceModels}} -->
-                             <div  v-for="servicemodel in ServiceModels" :key="servicemodel.id" class="col-md-3 d-flex">
+
+                             <div  v-for="servicemodel in ServiceModelsbyServID" :key="servicemodel.id" class="col-md-3 d-flex">
                                 <div class="card flex-fill" >
                                         <img class="card-img-top " :src="servicemodelLoadImage(servicemodel.image)" style="width:100%;height:150px;">
                                     <div class="card-body" >
@@ -159,20 +161,20 @@
                     SingleService(){
                         return this.$store.getters.SingleService
                     },
-                    ServiceModels(){
-                        return this.$store.getters.ServiceModelsById
+                    ServiceModelsbyServID(){
+                        console.log('data fom by id', this.$store.getters.ServiceModelsbyServID)
+                        return this.$store.getters.ServiceModelsbyServID
                     },
                 },
                 methods:{
-                    // singleservice(){
-                    //     console.log(this.$route.params.id)
-                    //     this.$store.dispatch('ServiceById', this.$route.params.id);   //action from index.js
-                    // },
-                    servicemodel(){
-                        console.log(this.$route.params.id)
-                        this.$store.dispatch('ServiceModelsByServiceId', this.$route.params.id);   //action from index.js
+                    singleservice(){
+                        this.$store.dispatch('ServiceById', this.$route.params.id);   //action from index.js
                     },
-                     newServiceModelModal(){
+                    servicemodels(){
+                        console.log('servicemodel fecth', this.$route.params.id)
+                        this.$store.dispatch('ServiceModelsByServiceID', this.$route.params.id);
+                    },
+                    newServiceModelModal(){
                         this.editmodeServiceModel = false;
                         this.servicemodelform.reset()
                             $('#ServiceModelModal').modal('show')
@@ -214,7 +216,6 @@
                         // console.log(servicemodelformimage, 'mixcv')
                         let img = this.servicemodelform.image;
                             if(img.length>100){
-                                    console.log('bbbbmixcv')
                                     return this.servicemodelform.image;
                                 }else{
                                     if(servicemodelformimage){
@@ -253,7 +254,6 @@
                                 })
                     },
                     addServiceModel(){
-                        console.log('misss mme')
                         this.$Progress.start();
                         this.servicemodelform.patch('/servicemodel/'+this.$route.params.id)
                             .then((response)=>{
@@ -263,8 +263,9 @@
                                      title: 'Feature Info Created successfully'
                                      })
 
-                                      this.$store.dispatch( "service")
-                                      this.$store.dispatch('ServiceModelsByServiceId', this.$route.params.id)
+                                      this.$store.dispatch( "organisation")//methods action
+                                      this.$store.dispatch('ServiceModelsByServiceID', this.$route.params.id);
+                                      this.$store.dispatch('ServiceById', this.$route.params.id);
                                       this.servicemodelform.reset()
                                       $('#ServiceModelModal').modal('hide')
                                       this.$Progress.finish()
@@ -279,12 +280,12 @@
                            })
                    },
                     updateServiceModel(id){
-                        console.log(id)
                         this.$Progress.start();
                             this.servicemodelform.patch('/servicemodel/update/'+id)
                                 .then(()=>{
-                                    this.$store.dispatch( "service")
-                                    this.$store.dispatch('ServiceModelsByServiceId', this.$route.params.id)
+                                     this.$store.dispatch( "organisation")
+                                    this.$store.dispatch('ServiceModelsByServiceID', this.$route.params.id);
+                                    this.$store.dispatch('ServiceById', this.$route.params.id);
                                 this.servicemodelform.reset()
                                 this.editmodelServiceModel = false;
                                 $('#ServiceModelModal').modal('hide')
@@ -323,8 +324,9 @@
                                         type: 'success',
                                         title: 'Service Deleted successfully'
                                         })
-                                         this.$store.dispatch( "service")
-                                         this.$store.dispatch('ServiceModelsByServiceId', this.$route.params.id)
+                                         this.$store.dispatch( "organisation")
+                                       this.$store.dispatch('ServiceModelsByServiceID', this.$route.params.id);
+                                      this.$store.dispatch('ServiceById', this.$route.params.id);
                                         this.$Progress.finish();
                                     })
                                     .catch(()=>{
@@ -340,13 +342,14 @@
 
                 },
                 mounted() { //action
-                        // this.singleservice();  //method
-                        this.servicemodel();  //method
+                        this.singleservice();  //method
+                        this.servicemodels();  //method
+
                 },
                 watch:{
                     $route(to, from){
-                        //   this.singleservice();//method
-                          this.servicemodel();//method
+                          this.singleservice();//method
+                          this.servicemodels();//method
                     }
                 }
             }

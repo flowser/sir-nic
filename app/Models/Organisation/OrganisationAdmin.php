@@ -75,18 +75,14 @@ class OrganisationAdmin extends Pivot
     {
         return $this->belongsTo(Gender::class);
     }
-    public function user()
+    public function organisationadmin()
     {
         return $this->belongsTo(User::class);
     }
 
-
     //has many
 
-    public function organisationemployees()
-    {
-        return $this->hasManyThrough(OrganisationEmployee::class, Organisation::class);
-    }
+
     public function bureaus()
     {
         return $this->hasManyThrough(Bureau::class, Organisation::class);

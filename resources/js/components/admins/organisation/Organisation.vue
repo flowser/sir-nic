@@ -3,12 +3,12 @@
       <!-- Main content -->
         <div class="col-md-12">
                 <!-- Widget: user widget style 1 -->
-                <div v-if="Organisation.length <1" class="card-tools">
+                <!-- <div v-if="Organisation.length <1" class="card-tools">
                 <!-- <div  class="card-tools"> -->
-                    <button class="btn btn-success" @click.prevent="newOrganisationModal()" >Add Organisation
-                        <i class="fas fa-plus fw"></i>
-                    </button>
-                </div>
+                    <!-- <button class="btn btn-success" @click.prevent="newOrganisationModal()" >Add Organisation -->
+                        <!-- <i class="fas fa-plus fw"></i> -->
+                    <!-- </button> -->
+                <!-- </div> --> -->
                 <div class="card card-widget widget-user" >
                    <!-- Add the bg color to the header using any of the bg-* classes -->
                     <div class="widget-user-header text-white" style="background: url('assets/organisation/img/background/background-1.jpg')
@@ -37,10 +37,10 @@
                                     <a href=""  @click.prevent="editOrganisationModal(Organisation.id)">
                                             <i class="fa fa-edit red"> Edit</i>
                                     </a>
-                                    /
-                                    <a href=""  @click.prevent="deleteOrganisation(Organisation.id)">
+                                    <!-- / -->
+                                    <!-- <a href=""  @click.prevent="deleteOrganisation(Organisation.id)">
                                         <i class="fa fa-trash red"></i>
-                                    </a>
+                                    </a> -->
                                 </span>
                             </div>
                             <div class="card-footer" style="padding-top:0px; margin-top: 60px;">
@@ -397,7 +397,11 @@
                                                     </a> -->
                                                 </div>
                                                 <div class="float-left">
+<<<<<<< HEAD
                                                     <a href="#about_us" class="card-link">Updated BY: {{About.user.full_name}}</a>
+=======
+                                                    <a href="#about_us" class="card-link" v-if="About.user">Updated BY: {{About.user.full_name}}</a>
+>>>>>>> everything ll set before we run nm run production
                                                     <a href="#about_us" class="card-link">Updated On: {{About.updated_at | dateformat}}</a>
                                                 </div>
                                             </div>
@@ -418,7 +422,7 @@
                                     </div>
                                     <div class="card-body">
                                         <div class="row ">
-                                                 <div  v-for="service in Service" :key="service.id" class="col-md-3 d-flex">
+                                                 <div  v-for="service in Services" :key="service.id" class="col-md-3 d-flex">
                                                     <div class="card flex-fill" >
                                                             <img class="card-img-top " :src="serviceLoadImage(service.service_image)" style="width:100%;height:150px;">
                                                         <div class="card-body" >
@@ -2153,7 +2157,7 @@
             this.loadWards();///linked to methods and actions store
             this.loadOrganisation();
             this.loadAbout();
-            this.loadService();
+            this.loadServices();
             this.loadFeatures();
             this.loadServiceModel();
             this.loadAdverts();
@@ -2190,8 +2194,8 @@
             About(){
                return this.$store.getters.About
             },
-            Service(){
-               return this.$store.getters.Service
+            Services(){
+               return this.$store.getters.Services
             },
             Features(){
                return this.$store.getters.Features
@@ -2387,20 +2391,21 @@
             loadOrganisation(){
                 return this.$store.dispatch( "organisation")//get all from organisation. organisation linked to user
             },
+
             loadAbout(){
                 return this.$store.dispatch( "about")
             },
             loadAdverts(){
                 return this.$store.dispatch( "adverts")
             },
-            loadService(){
-                return this.$store.dispatch( "service")
+            loadServices(){
+                return this.$store.dispatch( "services")
             },
             loadFeatures(){
                 return this.$store.dispatch( "features")
             },
             loadServiceModel(){
-                return this.$store.dispatch( "servicemodel")
+                return this.$store.dispatch( "servicemodels")
             },
 
             //Organisation
@@ -2598,7 +2603,7 @@
                             })
                             this.$store.dispatch( "organisation")
                             this.$store.dispatch( "about")
-                            this.$store.dispatch( "service")
+                            this.$store.dispatch( "services")
 
                             $('#OrganisationModal').modal('hide')
                             this.organisationform.reset()
@@ -3675,9 +3680,9 @@
                             })
                            this.$store.dispatch( "organisation")
                             this.$store.dispatch( "about")
-                            this.$store.dispatch( "service")
+                            this.$store.dispatch( "services")
                             this.$store.dispatch( "features")
-                            this.$store.dispatch( "servicemodel")
+                            this.$store.dispatch( "servicemodels")
                             this.$store.dispatch( "adverts")
                             $('#AboutModal').modal('hide')
                             this.aboutform.reset()
@@ -3700,9 +3705,9 @@
                         .then(()=>{
                              this.$store.dispatch( "organisation")
                             this.$store.dispatch( "about")
-                            this.$store.dispatch( "service")
+                            this.$store.dispatch( "services")
                             this.$store.dispatch( "features")
-                            this.$store.dispatch( "servicemodel")
+                            this.$store.dispatch( "servicemodels")
                             this.$store.dispatch( "adverts")
                          $('#AboutModal').modal('hide')
                          toast({
@@ -3805,9 +3810,9 @@
                             })
                             this.$store.dispatch( "organisation")
                             this.$store.dispatch( "about")
-                            this.$store.dispatch( "service")
+                            this.$store.dispatch( "services")
                             this.$store.dispatch( "features")
-                            this.$store.dispatch( "servicemodel")
+                            this.$store.dispatch( "servicemodels")
                             this.$store.dispatch( "adverts")
                             $('#ServiceModal').modal('hide')
                             this.serviceform.reset()
@@ -3830,9 +3835,9 @@
                         .then(()=>{
                             this.$store.dispatch( "organisation")
                             this.$store.dispatch( "about")
-                            this.$store.dispatch( "service")
+                            this.$store.dispatch( "services")
                             this.$store.dispatch( "features")
-                            this.$store.dispatch( "servicemodel")
+                            this.$store.dispatch( "servicemodels")
                             this.$store.dispatch( "adverts")
                          $('#ServiceModal').modal('hide')
                          toast({
@@ -3937,9 +3942,9 @@
                             })
                             this.$store.dispatch( "organisation")
                             this.$store.dispatch( "about")
-                            this.$store.dispatch( "service")
+                            this.$store.dispatch( "services")
                             this.$store.dispatch( "features")
-                            this.$store.dispatch( "servicemodel")
+                            this.$store.dispatch( "servicemodels")
                             this.$store.dispatch( "adverts")
                             $('#AdvertModal').modal('hide')
                             this.advertform.reset()
@@ -3962,9 +3967,9 @@
                         .then(()=>{
                             this.$store.dispatch( "organisation")
                             this.$store.dispatch( "about")
-                            this.$store.dispatch( "service")
+                            this.$store.dispatch( "services")
                             this.$store.dispatch( "features")
-                            this.$store.dispatch( "servicemodel")
+                            this.$store.dispatch( "servicemodels")
                             this.$store.dispatch( "adverts")
                          $('#AdvertModal').modal('hide')
                          toast({
@@ -4004,9 +4009,9 @@
                             })
                             this.$store.dispatch( "organisation")
                             this.$store.dispatch( "about")
-                            this.$store.dispatch( "service")
+                            this.$store.dispatch( "services")
                             this.$store.dispatch( "features")
-                            this.$store.dispatch( "servicemodel")
+                            this.$store.dispatch( "servicemodels")
                             this.$store.dispatch( "adverts")
 
                             this.$Progress.finish();
@@ -4107,9 +4112,9 @@
                             })
                             this.$store.dispatch( "organisation")
                             this.$store.dispatch( "about")
-                            this.$store.dispatch( "service")
+                            this.$store.dispatch( "services")
                             this.$store.dispatch( "features")
-                            this.$store.dispatch( "servicemodel")
+                            this.$store.dispatch( "servicemodels")
                             this.$store.dispatch( "adverts")
                             $('#FeatureModal').modal('hide')
                             this.featureform.reset()
@@ -4132,9 +4137,9 @@
                         .then(()=>{
                             this.$store.dispatch( "organisation")
                             this.$store.dispatch( "about")
-                            this.$store.dispatch( "service")
+                            this.$store.dispatch( "services")
                             this.$store.dispatch( "features")
-                            this.$store.dispatch( "servicemodel")
+                            this.$store.dispatch( "servicemodels")
                             this.$store.dispatch( "adverts")
                          $('#FeatureModal').modal('hide')
                          toast({
@@ -4174,9 +4179,9 @@
                             })
                             this.$store.dispatch( "organisation")
                             this.$store.dispatch( "about")
-                            this.$store.dispatch( "service")
+                            this.$store.dispatch( "services")
                             this.$store.dispatch( "features")
-                            this.$store.dispatch( "servicemodel")
+                            this.$store.dispatch( "servicemodels")
                             this.$store.dispatch( "adverts")
 
                             this.$Progress.finish();
@@ -4279,9 +4284,9 @@
                             })
                             this.$store.dispatch( "organisation")
                             this.$store.dispatch( "about")
-                            this.$store.dispatch( "service")
+                            this.$store.dispatch( "services")
                             this.$store.dispatch( "features")
-                            this.$store.dispatch( "servicemodel")
+                            this.$store.dispatch( "servicemodels")
                             this.$store.dispatch( "adverts")
                             $('#ServiceModelModal').modal('hide')
                             this.servicemodelform.reset()
@@ -4304,9 +4309,9 @@
                         .then(()=>{
                             this.$store.dispatch( "organisation")
                             this.$store.dispatch( "about")
-                            this.$store.dispatch( "service")
+                            this.$store.dispatch( "services")
                             this.$store.dispatch( "features")
-                            this.$store.dispatch( "servicemodel")
+                            this.$store.dispatch( "servicemodels")
                             this.$store.dispatch( "adverts")
                          $('#ServiceModelModal').modal('hide')
                          toast({
@@ -4346,9 +4351,9 @@
                             })
                             this.$store.dispatch( "organisation")
                             this.$store.dispatch( "about")
-                            this.$store.dispatch( "service")
+                            this.$store.dispatch( "services")
                             this.$store.dispatch( "features")
-                            this.$store.dispatch( "servicemodel")
+                            this.$store.dispatch( "servicemodels")
                             this.$store.dispatch( "adverts")
 
                             this.$Progress.finish();

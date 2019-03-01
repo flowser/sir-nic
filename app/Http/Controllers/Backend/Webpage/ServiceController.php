@@ -13,15 +13,16 @@ class ServiceController extends Controller
 {
     public function index()
     {
+<<<<<<< HEAD
                 $service = Service::with('user', 'organisation', 'servicemodels')
                 ->get();
                 return response()-> json([
                     'service' => $service,
                 ], 200);
+=======
 
-    }
-    public function organisations()//all services linked to organisation
-    {
+>>>>>>> everything ll set before we run nm run production
+
         $services = Service::with('user', 'organisation', 'servicemodels')
                     // ->where('services.organisation_id', $organisation->id)
                     ->get();
@@ -64,12 +65,20 @@ class ServiceController extends Controller
         $service->service_details = $request ->service_details;
 
         //getting Organisation $user
+<<<<<<< HEAD
                  $organisation= Organisation::first();
 
                  $user = Auth::user();
                  $service->organisation_id = $organisation ->id;
                  $service->user_id = $user ->id;
 
+=======
+        $organisation= Organisation::first();
+                //then
+                $user = Auth::user();
+                $service->organisation_id = $organisation ->id;
+                $service->user_id = $user ->id;
+>>>>>>> everything ll set before we run nm run production
 
         $strpos = strpos($request->service_image, ';'); //positionof image name semicolon
         $sub = substr($request->service_image, 0, $strpos);
@@ -143,10 +152,17 @@ class ServiceController extends Controller
 
         //getting Organisation $user, service_id
         $organisation= Organisation::first();
+<<<<<<< HEAD
 
                  $user = Auth::user();
                  $service->organisation_id = $organisation ->id;
                  $service->user_id = $user ->id;
+=======
+                //then
+                $user = Auth::user();
+                $service->organisation_id = $organisation ->id;
+                $service->user_id = $user ->id;
+>>>>>>> everything ll set before we run nm run production
 
         //getting previous service_image
         $currentImage = $service->service_image;

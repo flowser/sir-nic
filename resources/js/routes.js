@@ -26,25 +26,13 @@ import SingleAdvert from './components/admins/organisation/SingleAdvert.vue';
 //Single Service read more
 import SingleService from './components/admins/organisation/SingleService.vue';
 
-//Single ExtraService read more
-import SingleExtraService from './components/admins/organisation/SingleExtraService.vue';
-
-//Single Service Filter read more
-import SingleServiceFilter from './components/admins/organisation/SingleServiceFilter.vue';
-
-
-// Bureeau
-import BureauList from './components/admins/organisation/admin/Bureau.vue';
-// single Bureeau
-import SingleBureau from './components/admins/organisation/admin/SingleBureau.vue';
-//org Admins
-import BureauAdminList from './components/admins/organisation/admin/SingleBureau.vue';
 
 
 
 //frontend public view
 import Public from './components/public/About.vue';
-import ServiceModel from './components/public/ServiceModel.vue';
+import PublicSingleService from './components/public/PublicSingleService.vue';
+import PublicSingleServiceModel from './components/public/PublicSingleServiceModel.vue';
 
 
 
@@ -110,29 +98,6 @@ export const routes = [
       path:'/service/:id',
       component: SingleService
     },
-//Extraservice read more
-    {
-      path:'/extraservice/:id',
-      component: SingleExtraService
-    },
-//Extraservice read more
-    {
-      path:'/servicefilter/:id',
-      component: SingleServiceFilter
-    },
-//   //Bureau
-    {
-      path: '/bureaus',
-      component: BureauList
-    },
-    {
-      path: '/bureau/:id',
-      component: SingleBureau
-    },
-    {
-      path: '/bureauadmins',
-      component: BureauAdminList
-    },
 
 
 // //Front End
@@ -141,17 +106,17 @@ export const routes = [
     component: Public
   },
   {
-    path:'/servicemodels/:id', ///public
-    component: ServiceModel
+    path:'/pservice/:id',
+    component: PublicSingleService
   },
-//   {
-//     path:'/blog/:id',
-//     component: SingleCourse
-//   },
-//   {
-//     path:'/categories/:id',//be reirected to courese blog via category selection
-//     component: BlogCourse
-//   },
+  {
+    path:'/pservicemodel/:id', ///public
+    component: PublicSingleServiceModel
+  },
+  {
+    path:'/pservices/:id',
+    component: PublicSingleService
+  },
 
 
 

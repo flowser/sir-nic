@@ -1,6 +1,9 @@
 <template>
     <!--BLOG AREA-->
+<<<<<<< HEAD
     <span id="sidebar">
+=======
+>>>>>>> everything ll set before we run nm run production
         <!-- serviceside bar -->
         <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
             <div class="sidebar-area wow fadeIn">
@@ -14,9 +17,15 @@
                         <div class="single-sidebar-widget widget_categories">
                             <h4>Services</h4>
                             <ul >
+<<<<<<< HEAD
                                 <li v-for="service in Services" :key="service.id"  v-if="service.servicemodel.length>0">
                                     <router-link :to="`services/${service.id}`">{{service.name}}</router-link>
                                     <span>({{service.servicemodel.length}})</span>
+=======
+                                <li v-for="service in Services" :key="service.id"  v-if="service.servicemodels.length>0">
+                                    <router-link :to="`/pservices/${service.id}`">{{service.title}}</router-link>
+                                    <span>({{service.servicemodels.length}})</span>
+>>>>>>> everything ll set before we run nm run production
                                 </li>
 
                                 <!-- <li><a href="#">Air Freight</a></li>
@@ -26,14 +35,24 @@
                             </ul>
                         </div>
                         <div class="single-sidebar-widget widget_recent_entries">
+<<<<<<< HEAD
                             <h4>Latest Post</h4>
                             <ul>
                                 <li v-for="(servicemodel, index) in ServiceModels" :key="servicemodel.id" v-if="index<5">
+=======
+                            <h4>Latest Service Models</h4>
+                            <ul>
+                                <li v-for="(servicemodel, index) in ServiceModels" :key="servicemodel.id" v-if="index <5">
+>>>>>>> everything ll set before we run nm run production
                                     <div class="alignleft">
                                         <img :src="servicemodelLoadImage(servicemodel.image)" alt="latest" class="pull-left" width="70" >
                                     </div>
                                     <h6>
+<<<<<<< HEAD
                                         <router-link :to="`singleservicemodel/${servicemodel.id}`" href="#">{{servicemodel.name}}</router-link>
+=======
+                                        <router-link :to="`/pservicemodel/${servicemodel.id}`" >{{servicemodel.title}}</router-link>
+>>>>>>> everything ll set before we run nm run production
                                     </h6>
                                     <p>
                                     {{servicemodel.details | sortlength(100, "....")}}
@@ -58,7 +77,10 @@
 
         </div>
         <!-- service sidebar -->
+<<<<<<< HEAD
     </span>
+=======
+>>>>>>> everything ll set before we run nm run production
     <!--BLOG AREA END-->
 </template>
 
@@ -78,18 +100,44 @@ import _ from 'lodash'
                 return this.$store.getters.Services;
             },
             ServiceModels(){
+<<<<<<< HEAD
                 return this.$store.getters.latestServiceModels;
             }
         },
         mounted() {
             this.$store.dispatch('latestServiceModels'); //action from index.js
             this.$store.dispatch('Services');
+=======
+                return this.$store.getters.LatestServiceModels;
+            },
+        },
+        mounted() {
+            this.loadServiceModels();
+
+            this.$store.dispatch('services');
+            this.$store.dispatch('LatestServiceModelsByServiceID');
+>>>>>>> everything ll set before we run nm run production
         },
         methods:{
             RealSearch:_.debounce(function () {
                     this.$store.dispatch('SearchServiceModel', this.keyword); //action from index.js
+<<<<<<< HEAD
             }, 1000)
         }
 
+=======
+            }, 20),
+             servicemodelLoadImage(servicemodel_image){
+                if(servicemodel_image){
+                    return "/assets/organisation/img/website/services/servicemodels/"+servicemodel_image;
+                }else{
+                    return "/assets/organisation/img/website/empty.png";
+                }
+            },
+            loadServiceModels(){
+                     return this.$store.dispatch("LatestServiceModels")
+            },
+        }
+>>>>>>> everything ll set before we run nm run production
     }
 </script>

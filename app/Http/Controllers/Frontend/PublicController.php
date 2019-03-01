@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Frontend;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Organisation\Organisation;
+use App\Models\Standard\Webservices\Advert;
+use App\Models\Standard\Webservices\ServiceModel;
 
 class PublicController extends Controller
 {
@@ -18,7 +20,11 @@ class PublicController extends Controller
         $organisation = Organisation::with('about','services', 'servicemodels', 'adverts', 'features',
                                'organisationdirectors', 'organisationadmins', 'organisationemployees')
                                ->first();
-                               return $organisation;
+        $servicemodels = ServiceModel::with('user', 'service')->orderBy('id', 'desc')->get();
+    //    dd($servicemodels );
+        $adverts = Advert::with('user', 'organisation')->orderBy('id', 'desc')->get();
+
+         return view('public.publicmaster', compact("organisation", "servicemodels", "adverts"));
     }
 
     /**

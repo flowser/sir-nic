@@ -365,7 +365,11 @@ class OrgEmployeeController extends Controller
            $constituency_id = $request-> constituency_id;
            $ward_id = $request-> ward_id;
 
+<<<<<<< HEAD
            $position_id = Position::find(7)->id;
+=======
+           $position_id = Position::find(3)->id;
+>>>>>>> everything ll set before we run nm run production
            $gender_id = Gender::find(1)->id;
 
            DB::table('organisation_employee')->where('user_id', $user->id)

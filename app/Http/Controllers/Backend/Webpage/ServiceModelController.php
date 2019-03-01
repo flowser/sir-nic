@@ -14,22 +14,11 @@ class ServiceModelController extends Controller
 {
     public function index()
     {
-
                 $servicemodels = ServiceModel::with('user', 'service')
                 ->get();
                 return response()-> json([
                     'servicemodels' => $servicemodels,
                 ], 200);
-    }
-    public function organisations()//all servicemodels linked to organisation
-    {
-        $servicemodels = ServiceModel::with('user', 'service')
-                    // ->where('abouts.service_id', $organisation->id)
-                    ->get();
-        // dd($about);
-        return response()-> json([
-        'servicemodels' => $servicemodels,
-        ], 200);
     }
 
     /**
@@ -84,12 +73,6 @@ class ServiceModelController extends Controller
         $servicemodel->save();
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function show($id)
     {
         $singleservicemodel = ServiceModel::with('user', 'service')
@@ -99,22 +82,55 @@ class ServiceModelController extends Controller
         ], 200);
     }
 
-    public function ServiceModelByServiceID($id)
+    public function ServiceModelsByServiceID($id)
     {
-        $servicemodelsbyid = ServiceModel::with('user', 'service')->where('service_id', $id)
+        $servicemodels = ServiceModel::with('user', 'service')->where('service_id', $id)
                                 ->orderBy('id', 'desc')
                                 ->get();
         return response()-> json([
-            'servicemodelsbyid' => $servicemodelsbyid,
+            'servicemodels' => $servicemodels,
+        ], 200);
+    }
+    public function search()
+    {
+        $search = \Request::get('s');
+        if($search !=null) {
+            $servicemodels = ServiceModel::with('user', 'service')
+                ->where('title','LIKE',"%$search%")
+                ->orWhere('details','LIKE',"%$search%")
+                ->get();
+                return response()->json([
+                    'servicemodels' => $servicemodels,
+                ], 200);
+        }else{
+            return $this->index();
+        }
+    }
+    public function latestservicemodels()
+     {
+        $servicemodels = ServiceModel::with('user', 'service')->orderBy('id', 'desc')->get();
+        return response()->json([
+            'servicemodels' => $servicemodels,
+        ], 200);
+    }
+    public function LatestServiceModelsByServiceID($id)
+     {
+        $servicemodels = ServiceModel::with('user', 'service')->where('service_id', $id)->orderBy('id', 'desc')->get();
+        return response()->json([
+            'servicemodels' => $servicemodels,
+        ], 200);
+    }
+    public function LatestServiceModelsBySingleModelID($id)
+     {
+         $service = ServiceModel::find($id)->service()->first();
+
+        $servicemodels = ServiceModel::with('user', 'service')->where('service_id', $service->id)->orderBy('id', 'desc')->get();
+        return response()->json([
+            'servicemodels' => $servicemodels,
         ], 200);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+
     public function edit($id)
     {
         // $organisation = (Auth::user()-> organisationemployeeusers()->first()->organisation()->first());
