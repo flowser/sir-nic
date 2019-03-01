@@ -154,7 +154,7 @@ import ServiceSidebar from "./ServiceSidebar.vue"
             $route(to, from){
                 this.singleservicemodel(); //the method to servicemodels by service id
                 this.loadOrganisation();//method
-                this.organisationLoadLogo()
+                this.organisationLoadLogo();
            }
         }
     }
