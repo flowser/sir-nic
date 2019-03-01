@@ -5,11 +5,7 @@ const state = {
     servicemodels:[],
     servicemodelsbyservid:[],
     singleservicemodel:[],
-<<<<<<< HEAD
-    latestServiceModels:[],
-=======
     latestservicemodels:[],
->>>>>>> everything ll set before we run nm run production
   },
   getters = {
     ServiceModels(state){
@@ -18,16 +14,11 @@ const state = {
     SingleServiceModel(state){
         return state.singleservicemodel;
     },
-<<<<<<< HEAD
-    latestServiceModels(state){
-        return state.latestServiceModels;
-=======
     ServiceModelsbyServID(state){
         return state.servicemodelsbyservid;
     },
     LatestServiceModels(state){
         return state.latestservicemodels;
->>>>>>> everything ll set before we run nm run production
     },
   }
 const actions = {
@@ -41,11 +32,7 @@ const actions = {
     ServiceModelById(context, payload){
         axios.get('/servicemodel/show/'+payload)
               .then((response)=>{
-<<<<<<< HEAD
-                  context.commit('singleservicemodel', response.data.singleservicemodel);
-=======
                   context.commit('singleservicemodel', response.data.singleservicemodel);//view one
->>>>>>> everything ll set before we run nm run production
               });
     },
     ServiceModelsByServiceID(context, payload){
@@ -78,23 +65,6 @@ const actions = {
             context.commit('LatestServiceModels', response.data.servicemodels);//loged in gets all servicemodels based by service id
         });
     },
-<<<<<<< HEAD
-    latestServiceModels(context){
-        axios.get('/servicemodel/latest/')
-        .then((response)=>{
-            console.log( response.data);
-            context.commit(' latestServiceModels', response.data.ervicemodels);
-        });
-    },
-    SearchServiceModel(context, payload){
-        axios.get('/blogcourse/courses/search?s='+payload)
-            .then((response)=>{
-                console.log(response.data)
-                context.commit('SearchServiceModels', response.data.servicemodels)
-            })
-      },
-=======
->>>>>>> everything ll set before we run nm run production
   }
 
 const mutations = {
@@ -104,17 +74,6 @@ const mutations = {
     singleservicemodel(state, data){
       return state.singleservicemodel = data;
     },
-<<<<<<< HEAD
-    servicemodelsbyid(state, data){
-        return state.servicemodelsbyid = data;
-    },
-    latestServiceModels(state, data){
-      return state.latestServiceModels = data;
-    },
-    SearchServiceModels(state, data){
-      return state.servicemodels = data;
-    },
-=======
     servicemodelsbyservid(state, data){
       return state.servicemodelsbyservid = data;
     },
@@ -124,7 +83,6 @@ const mutations = {
     LatestServiceModels(state, data){
         return state.latestservicemodels = data;
       },
->>>>>>> everything ll set before we run nm run production
   }
 
 export default {

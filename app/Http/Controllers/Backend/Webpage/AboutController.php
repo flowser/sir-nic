@@ -24,10 +24,8 @@ class AboutController extends Controller
     {
 
                 $about = About::with('user', 'organisation')
-<<<<<<< HEAD
-=======
-                // ->where('organisation_id', $organisation->id)
->>>>>>> everything ll set before we run nm run production
+
+
                 ->first();
                 return response()-> json([
                     'about' => $about,
@@ -71,20 +69,15 @@ class AboutController extends Controller
         $about->what_we_do = $request ->what_we_do;
 
         //getting Organisation $user
-<<<<<<< HEAD
-=======
 
->>>>>>> everything ll set before we run nm run production
+
                 $organisation= Organisation::first();
                 //then
                 $user = Auth::user();
                 $about->organisation_id = $organisation ->id;
                 $about->user_id = $user ->id;
 
-<<<<<<< HEAD
-=======
 
->>>>>>> everything ll set before we run nm run production
 
         $strpos = strpos($request->front_image, ';'); //positionof image name semicolon
         $sub = substr($request->front_image, 0, $strpos);
@@ -158,7 +151,6 @@ class AboutController extends Controller
         $about->who_we_are = $request ->who_we_are;
         $about->what_we_do = $request ->what_we_do;
 
-<<<<<<< HEAD
         //getting Organisation $user
         $organisation= Organisation::first();
         //then
@@ -166,13 +158,11 @@ class AboutController extends Controller
         $about->organisation_id = $organisation ->id;
         $about->user_id = $user ->id;
 
-=======
         $organisation= Organisation::first();
                 //then
                 $user = Auth::user();
                 $about->organisation_id = $organisation ->id;
                 $about->user_id = $user ->id;
->>>>>>> everything ll set before we run nm run production
         //getting previous image
         $currentFront_Image = $about->front_image;
 

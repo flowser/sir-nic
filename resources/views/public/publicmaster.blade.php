@@ -52,8 +52,6 @@
                 flex: 1;
                 padding: 16px;
               }
-<<<<<<< HEAD
-=======
               .owl-carousel .owl-controls .owl-nav .owl-prev, .owl-carousel .owl-controls .owl-nav .owl-next, .owl-carousel .owl-controls .owl-dot {
                 cursor: pointer;
                 cursor: hand;
@@ -63,7 +61,6 @@
                 user-select: none;
                 padding:0px;
             }
->>>>>>> everything ll set before we run nm run production
 
 
       </style>
@@ -95,35 +92,17 @@
                         <div class="mainmenu-area-bg"></div>
                         <!--Navbar-->
                         <nav class="navbar navbar-expand-lg navbar-dark primary-color">
-<<<<<<< HEAD
-                            <div class="container">
-                                <!-- Navbar brand -->
-                                <a class="navbar-brand" href="#">Navbar</a>
-
-=======
                             <div class="container-fluid">
                                 <!-- Navbar brand -->
                                 {{-- {{$organisation}} --}}
                                 <div class="navbar-header">
                                     <img src="assets/organisation/img/logo/{{$organisation->logo}}" alt="logo" style="width: 50px;padding-bottom: 1px;">
                                 </div>
->>>>>>> everything ll set before we run nm run production
                                 <!-- Collapsible content -->
                                 <div class="collapse navbar-collapse" id="basicExampleNav">
                                 <!-- Links -->
                                 <ul class="navbar-nav mr-auto">
                                     <li class="nav-item active">
-<<<<<<< HEAD
-                                        <router-link to="/pub" class="nav-link"> Home
-                                            <span class="sr-only">(current)</span>
-                                         </router-link>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="#">About</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="#">Services</a>
-=======
                                         <a href="" class="nav-link"> Home
                                             <span class="sr-only">(current)</span>
                                          </a>
@@ -135,7 +114,6 @@
                                     <li class="nav-item">
                                        <router-link to="/pub" class="nav-link"> Our Profile
                                         </router-link>
->>>>>>> everything ll set before we run nm run production
                                     </li>
                                     {{-- <!-- Dropdown -->
                                     <li class="nav-item dropdown">

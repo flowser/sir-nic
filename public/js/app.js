@@ -13379,272 +13379,6 @@ __webpack_require__.r(__webpack_exports__);
   $.fn[NAME$5] = Modal._jQueryInterface;
   $.fn[NAME$5].Constructor = Modal;
 
-<<<<<<< HEAD
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-/* harmony default export */ __webpack_exports__["default"] = ({
-  mounted: function mounted() {
-    this.loadOrganisation();
-    this.loadAbout();
-    this.loadService();
-    this.loadFeatures();
-    this.loadServiceModel();
-    this.loadAdverts();
-  },
-  computed: {
-    Organisation: function Organisation() {
-      return this.$store.getters.Organisation;
-    },
-    Director: function Director() {
-      return this.$store.getters.director; //reminder to updater index
-    },
-    Admin: function Admin() {
-      return this.$store.getters.Admin; //reminder to updater index
-    },
-    Employee: function Employee() {
-      return this.$store.getters.Employee; //reminder to updater index
-    },
-    About: function About() {
-      return this.$store.getters.About;
-    },
-    Service: function Service() {
-      return this.$store.getters.Service;
-    },
-    Features: function Features() {
-      return this.$store.getters.Features;
-    },
-    ServiceModel: function ServiceModel() {
-      return this.$store.getters.ServiceModel;
-    },
-    Adverts: function Adverts() {
-      return this.$store.getters.Adverts;
-    }
-  },
-  methods: {
-    loadOrganisation: function loadOrganisation() {
-      return this.$store.dispatch("organisation"); //get all from organisation. organisation linked to user
-    },
-    loadAbout: function loadAbout() {
-      return this.$store.dispatch("about");
-    },
-    loadAdverts: function loadAdverts() {
-      return this.$store.dispatch("adverts");
-    },
-    loadService: function loadService() {
-      return this.$store.dispatch("service");
-    },
-    loadFeatures: function loadFeatures() {
-      return this.$store.dispatch("features");
-    },
-    loadServiceModel: function loadServiceModel() {
-      return this.$store.dispatch("servicemodel");
-    },
-    aboutLoadFrontImage: function aboutLoadFrontImage(front_image_id) {
-      if (front_image_id) {
-        return "/assets/organisation/img/website/frontimage/" + front_image_id;
-      } else {
-        return "/assets/organisation/img/website/empty.png";
-      }
-    },
-    organisationLoadLogo: function organisationLoadLogo(logo_id) {
-      if (logo_id) {
-        return "assets/organisation/img/logo/" + logo_id;
-      } else {
-        return "/assets/organisation/img/website/empty.png";
-      }
-    },
-    directorLoadPassPhoto: function directorLoadPassPhoto(directorpivot_photo) {
-      if (directorpivot_photo) {
-        return "/assets/organisation/img/directors/passports/" + directorpivot_photo;
-      } else {
-        return "/assets/organisation/img/website/empty.png";
-=======
   $.fn[NAME$5].noConflict = function () {
     $.fn[NAME$5] = JQUERY_NO_CONFLICT$5;
     return Modal._jQueryInterface;
@@ -13781,7 +13515,6 @@ __webpack_require__.r(__webpack_exports__);
     _proto.toggle = function toggle(event) {
       if (!this._isEnabled) {
         return;
->>>>>>> everything ll set before we run nm run production
       }
 
       if (event) {
@@ -13842,24 +13575,6 @@ __webpack_require__.r(__webpack_exports__);
       if ($(this.element).css('display') === 'none') {
         throw new Error('Please use show on visible elements');
       }
-<<<<<<< HEAD
-    },
-    advertLoadImage: function advertLoadImage(advert_image) {
-      if (advert_image) {
-        return "/assets/organisation/img/website/adverts/" + advert_image;
-      } else {
-        return "/assets/organisation/img/website/empty.png";
-      }
-    }
-  },
-  watch: {
-    $route: function $route(to, from) {
-      this.loadOrganisation();
-    }
-  }
-});
-=======
->>>>>>> everything ll set before we run nm run production
 
       var showEvent = $.Event(this.constructor.Event.SHOW);
 
@@ -13882,207 +13597,7 @@ __webpack_require__.r(__webpack_exports__);
           $(tip).addClass(ClassName$6.FADE);
         }
 
-<<<<<<< HEAD
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _ServiceSidebar_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ServiceSidebar.vue */ "./resources/js/components/public/ServiceSidebar.vue");
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-/* harmony default export */ __webpack_exports__["default"] = ({
-  name: "SingleService",
-  components: {
-    ServiceSidebar: _ServiceSidebar_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
-  },
-  mounted: function mounted() {
-    this.$store.dispatch('ServiceModels'); //a// service models per the current service id
-  },
-  conmputed: {
-    ServiceModels: function ServiceModels() {
-      return this.$store.getters.ServiceModels;
-    }
-  },
-  methods: {
-    servicemodelLoadImage: function servicemodelLoadImage(servicemodel_image) {
-      if (servicemodel_image) {
-        return "/assets/organisation/img/website/services/servicemodels" + servicemodel_image;
-      } else {
-        return "/assets/organisation/img/website/empty.png";
-      }
-    },
-    getAllServiceModels: function getAllServiceModels() {
-      if (this.$route.params.id != null) {
-        this.$store.dispatch('getServiceModelByServiceID', this.$route.params.id);
-      } else {
-        this.$store.dispatch('ServiceModels'); //a// service models per the current service id
-      }
-    }
-  },
-  watch: {
-    $route: function $route(to, from) {
-      this.getAllServiceModels(); //the method to servicemodels by service id
-    }
-  }
-});
-
-/***/ }),
-
-/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/public/ServiceSidebar.vue?vue&type=script&lang=js&":
-/*!********************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/public/ServiceSidebar.vue?vue&type=script&lang=js& ***!
-  \********************************************************************************************************************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
-/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_0__);
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-/* harmony default export */ __webpack_exports__["default"] = ({
-  name: "ServiceSidebar",
-  data: function data() {
-    return {
-      keyword: ''
-    };
-  },
-  computed: {
-    Services: function Services() {
-      return this.$store.getters.Services;
-    },
-    ServiceModels: function ServiceModels() {
-      return this.$store.getters.latestServiceModels;
-    }
-  },
-  mounted: function mounted() {
-    this.$store.dispatch('latestServiceModels'); //action from index.js
-
-    this.$store.dispatch('Services');
-  },
-  methods: {
-    RealSearch: lodash__WEBPACK_IMPORTED_MODULE_0___default.a.debounce(function () {
-      this.$store.dispatch('SearchServiceModel', this.keyword); //action from index.js
-    }, 1000)
-  }
-});
-=======
         var placement = typeof this.config.placement === 'function' ? this.config.placement.call(this, tip, this.element) : this.config.placement;
->>>>>>> everything ll set before we run nm run production
 
         var attachment = this._getAttachment(placement);
 
@@ -69444,20 +68959,6 @@ var render = function() {
                       ]),
                       _vm._v(" "),
                       _c("div", { staticClass: "float-left" }, [
-<<<<<<< HEAD
-                        _c(
-                          "a",
-                          {
-                            staticClass: "card-link",
-                            attrs: { href: "#about_us" }
-                          },
-                          [
-                            _vm._v(
-                              "Updated BY: " + _vm._s(_vm.About.user.full_name)
-                            )
-                          ]
-                        ),
-=======
                         _vm.About.user
                           ? _c(
                               "a",
@@ -69473,7 +68974,6 @@ var render = function() {
                               ]
                             )
                           : _vm._e(),
->>>>>>> everything ll set before we run nm run production
                         _vm._v(" "),
                         _c(
                           "a",
@@ -86176,335 +85676,6 @@ var render = function() {
                   _vm._v(" "),
                   _c("div", { staticClass: "row" }, [
                     _c(
-<<<<<<< HEAD
-                      "div",
-                      {
-                        staticClass:
-                          "card col-md-4 col-lg-4 col-sm-12 col-xs-12 border-0"
-                      },
-                      [
-                        _c("div", { staticClass: "card-body" }, [
-                          _c("h3", [_vm._v("Who We Are")]),
-                          _vm._v(" "),
-                          _c("p", [_vm._v(_vm._s(_vm.About.who_we_are))])
-                        ])
-                      ]
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "div",
-                      {
-                        staticClass:
-                          "card col-md-4 col-lg-4 col-sm-12 col-xs-12 border-0"
-                      },
-                      [
-                        _c("div", { staticClass: "card-body" }, [
-                          _c("img", {
-                            attrs: {
-                              src: _vm.organisationLoadLogo(
-                                _vm.Organisation.logo
-                              ),
-                              alt: "history"
-                            }
-                          })
-                        ])
-                      ]
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "div",
-                      {
-                        staticClass:
-                          "card col-md-4 col-lg-4 col-sm-12 col-xs-12 border-0"
-                      },
-                      [
-                        _c("div", { staticClass: "card-body" }, [
-                          _c("h3", [_vm._v("What We Do")]),
-                          _vm._v(" "),
-                          _c("p", [_vm._v(_vm._s(_vm.About.what_we_do))])
-                        ])
-                      ]
-                    )
-                  ])
-                ]
-              ),
-              _vm._v(" "),
-              _c("div", { staticClass: "tab-pane", attrs: { id: "team" } }, [
-                _c(
-                  "div",
-                  { staticClass: "row " },
-                  [
-                    _vm._l(_vm.Organisation.organisationdirectors, function(
-                      director
-                    ) {
-                      return _c(
-                        "div",
-                        {
-                          key: director.id,
-                          staticClass:
-                            "col-md-4 col-lg-4 col-sm-6 col-xs-12 d-flex"
-                        },
-                        [
-                          _c("div", { staticClass: "card flex-fill" }, [
-                            _c("img", {
-                              staticClass: "card-img-top ",
-                              attrs: {
-                                src: _vm.directorLoadPassPhoto(
-                                  director.pivot.photo
-                                ),
-                                alt: "member"
-                              }
-                            }),
-                            _vm._v(" "),
-                            _c("div", { staticClass: "card-body" }, [
-                              _c("h3", [_vm._v(_vm._s(director.full_name))]),
-                              _vm._v(" "),
-                              _c("p", [_vm._v(_vm._s(director.position_name))]),
-                              _vm._v(" "),
-                              _vm._m(1, true)
-                            ])
-                          ])
-                        ]
-                      )
-                    }),
-                    _vm._v(" "),
-                    _vm._l(_vm.Organisation.organisationadmins, function(
-                      admin
-                    ) {
-                      return _c(
-                        "div",
-                        {
-                          key: admin.id,
-                          staticClass:
-                            "col-md-4 col-lg-4 col-sm-6 col-xs-12 d-flex"
-                        },
-                        [
-                          _c("div", { staticClass: "card flex-fill" }, [
-                            _c("img", {
-                              staticClass: "card-img-top ",
-                              attrs: {
-                                src: _vm.adminLoadPassPhoto(admin.pivot.photo),
-                                alt: "member"
-                              }
-                            }),
-                            _vm._v(" "),
-                            _c("div", { staticClass: "card-body" }, [
-                              _c("h3", [_vm._v(_vm._s(admin.full_name))]),
-                              _vm._v(" "),
-                              _c("p", [_vm._v(_vm._s(admin.position_name))]),
-                              _vm._v(" "),
-                              _vm._m(2, true)
-                            ])
-                          ])
-                        ]
-                      )
-                    }),
-                    _vm._v(" "),
-                    _vm._l(_vm.Organisation.organisationemployees, function(
-                      employee
-                    ) {
-                      return _c(
-                        "div",
-                        {
-                          key: employee.id,
-                          staticClass:
-                            "col-md-4 col-lg-4 col-sm-6 col-xs-12 d-flex"
-                        },
-                        [
-                          _c("div", { staticClass: "card flex-fill" }, [
-                            _c("img", {
-                              staticClass: "card-img-top ",
-                              attrs: {
-                                src: _vm.employeeLoadPassPhoto(
-                                  employee.pivot.photo
-                                ),
-                                alt: "member"
-                              }
-                            }),
-                            _vm._v(" "),
-                            _c("div", { staticClass: "card-body" }, [
-                              _c("h3", [_vm._v(_vm._s(employee.full_name))]),
-                              _vm._v(" "),
-                              _c("p", [_vm._v(_vm._s(employee.position_name))]),
-                              _vm._v(" "),
-                              _vm._m(3, true)
-                            ])
-                          ])
-                        ]
-                      )
-                    })
-                  ],
-                  2
-                )
-              ]),
-              _vm._v(" "),
-              _c(
-                "div",
-                { staticClass: "tab-pane", attrs: { id: "services" } },
-                [
-                  _c(
-                    "div",
-                    { staticClass: "row " },
-                    _vm._l(_vm.Service, function(service) {
-                      return _c(
-                        "div",
-                        {
-                          key: service.id,
-                          staticClass:
-                            "card d-flex col-md-6 col-lg-4 col-sm-12 col-xs-12 border-0"
-                        },
-                        [
-                          _c(
-                            "div",
-                            { staticClass: "card flex-fill" },
-                            [
-                              _c("img", {
-                                staticClass: "card-img-top ",
-                                staticStyle: { width: "100%" },
-                                attrs: {
-                                  src: _vm.serviceLoadImage(
-                                    service.service_image
-                                  )
-                                }
-                              }),
-                              _vm._v(" "),
-                              _c("div", { staticClass: "card-body" }, [
-                                _c(
-                                  "h5",
-                                  { staticClass: "card-title text-center" },
-                                  [_vm._v(_vm._s(service.title))]
-                                ),
-                                _vm._v(" "),
-                                _c(
-                                  "h6",
-                                  { staticClass: "card-title text-center" },
-                                  [_vm._v(_vm._s(service.service_title))]
-                                ),
-                                _vm._v(" "),
-                                _c(
-                                  "p",
-                                  {
-                                    staticClass: "card-text",
-                                    staticStyle: { "margin-bottom": "-0.5em" }
-                                  },
-                                  [_vm._v(_vm._s(service.service_details))]
-                                )
-                              ]),
-                              _vm._v(" "),
-                              _c(
-                                "router-link",
-                                {
-                                  staticClass: "pull-right blue",
-                                  attrs: { to: "/services/" + service.id }
-                                },
-                                [_vm._v("More Models For this Service")]
-                              )
-                            ],
-                            1
-                          )
-                        ]
-                      )
-                    }),
-                    0
-                  )
-                ]
-              ),
-              _vm._v(" "),
-              _c(
-                "div",
-                { staticClass: "tab-pane", attrs: { id: "features" } },
-                [
-                  _c(
-                    "div",
-                    { staticClass: "row" },
-                    _vm._l(_vm.Features, function(feature) {
-                      return _c(
-                        "div",
-                        {
-                          key: feature.id,
-                          staticClass:
-                            "card d-flex col-md-4 col-lg-4 col-sm-12 col-xs-12 border-0"
-                        },
-                        [
-                          _c("div", { staticClass: "card flex-fill" }, [
-                            _c("img", {
-                              staticClass: "card-img-top ",
-                              staticStyle: { width: "100%" },
-                              attrs: {
-                                src: _vm.featureLoadImage(feature.image)
-                              }
-                            }),
-                            _vm._v(" "),
-                            _c("div", { staticClass: "card-body" }, [
-                              _c(
-                                "h5",
-                                { staticClass: "card-title text-center" },
-                                [_vm._v(_vm._s(feature.title))]
-                              ),
-                              _vm._v(" "),
-                              _c(
-                                "p",
-                                {
-                                  staticClass: "card-text",
-                                  staticStyle: { "margin-bottom": "-0.5em" }
-                                },
-                                [_vm._v(_vm._s(feature.details))]
-                              )
-                            ])
-                          ])
-                        ]
-                      )
-                    }),
-                    0
-                  )
-                ]
-              ),
-              _vm._v(" "),
-              _c("div", { staticClass: "tab-pane", attrs: { id: "adverts" } }, [
-                _c(
-                  "div",
-                  { staticClass: "row" },
-                  _vm._l(_vm.Adverts, function(advert) {
-                    return _c(
-                      "div",
-                      {
-                        key: advert.id,
-                        staticClass:
-                          "card d-flex col-md-4 col-lg-4 col-sm-12 col-xs-12 border-0"
-                      },
-                      [
-                        _c("div", { staticClass: "card flex-fill" }, [
-                          _c("img", {
-                            staticClass: "card-img-top ",
-                            staticStyle: { width: "100%" },
-                            attrs: {
-                              src: _vm.advertLoadImage(advert.advert_image)
-                            }
-                          }),
-                          _vm._v(" "),
-                          _c("div", { staticClass: "card-body" }, [
-                            _c(
-                              "h5",
-                              { staticClass: "card-title text-center" },
-                              [_vm._v(_vm._s(advert.title))]
-                            ),
-                            _vm._v(" "),
-                            _c(
-                              "h6",
-                              { staticClass: "card-title text-center" },
-                              [_vm._v(_vm._s(advert.subtitle))]
-                            ),
-                            _vm._v(" "),
-                            _c(
-                              "p",
-                              {
-                                staticClass: "card-text",
-                                staticStyle: { "margin-bottom": "-0.5em" }
-                              },
-                              [_vm._v(_vm._s(advert.details))]
-                            )
-                          ])
-=======
                       "div",
                       {
                         staticClass:
@@ -86828,7 +85999,6 @@ var render = function() {
                               [_vm._v(_vm._s(advert.details))]
                             )
                           ])
->>>>>>> everything ll set before we run nm run production
                         ])
                       ]
                     )
@@ -86876,8 +86046,6 @@ var staticRenderFns = [
                     )
                   ]
                 )
-<<<<<<< HEAD
-=======
               ]),
               _vm._v(" "),
               _c("li", { staticClass: "nav-item" }, [
@@ -86894,74 +86062,6 @@ var staticRenderFns = [
                   },
                   [
                     _vm._v(
-                      "\n                                Team Members\n                            "
-                    )
-                  ]
-                )
-              ]),
-              _vm._v(" "),
-              _c("li", { staticClass: "nav-item" }, [
-                _c(
-                  "a",
-                  {
-                    staticClass: "nav-link",
-                    attrs: {
-                      href: "#services",
-                      "data-toggle": "tab",
-                      title: "Services",
-                      "aria-expanded": "true"
-                    }
-                  },
-                  [
-                    _vm._v(
-                      "\n                                Services\n                            "
-                    )
-                  ]
-                )
-              ]),
-              _vm._v(" "),
-              _c("li", { staticClass: "nav-item" }, [
-                _c(
-                  "a",
-                  {
-                    staticClass: "nav-link",
-                    attrs: {
-                      href: "#features",
-                      "data-toggle": "tab",
-                      title: "Features",
-                      "aria-expanded": "true"
-                    }
-                  },
-                  [
-                    _vm._v(
-                      "\n                                Features\n                            "
-                    )
-                  ]
-                )
->>>>>>> everything ll set before we run nm run production
-              ]),
-              _vm._v(" "),
-              _c("li", { staticClass: "nav-item" }, [
-                _c(
-                  "a",
-                  {
-                    staticClass: "nav-link",
-                    attrs: {
-<<<<<<< HEAD
-                      href: "#team",
-                      "data-toggle": "tab",
-                      title: "Team Members",
-=======
-                      href: "#adverts",
-                      "data-toggle": "tab",
-                      title: "Adverts",
->>>>>>> everything ll set before we run nm run production
-                      "aria-expanded": "true"
-                    }
-                  },
-                  [
-                    _vm._v(
-<<<<<<< HEAD
                       "\n                                Team Members\n                            "
                     )
                   ]
@@ -87026,12 +86126,6 @@ var staticRenderFns = [
                     )
                   ]
                 )
-=======
-                      "\n                                Adverts\n                            "
-                    )
-                  ]
-                )
->>>>>>> everything ll set before we run nm run production
               ])
             ])
           ])
@@ -87160,17 +86254,10 @@ render._withStripped = true
 
 /***/ }),
 
-<<<<<<< HEAD
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/public/ServiceModel.vue?vue&type=template&id=7ea42c7f&":
-/*!**********************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/public/ServiceModel.vue?vue&type=template&id=7ea42c7f& ***!
-  \**********************************************************************************************************************************************************************************************************************/
-=======
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/public/PublicSingleService.vue?vue&type=template&id=3a01e7ae&":
 /*!*****************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/public/PublicSingleService.vue?vue&type=template&id=3a01e7ae& ***!
   \*****************************************************************************************************************************************************************************************************************************/
->>>>>>> everything ll set before we run nm run production
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -87191,11 +86278,7 @@ var render = function() {
           _c(
             "div",
             { staticClass: "col-md-8 col-lg-8 col-sm-12 col-xs-12" },
-<<<<<<< HEAD
-            _vm._l(_vm.ServiceModels, function(servicemodel) {
-=======
             _vm._l(_vm.ServiceModelsbyServID, function(servicemodel) {
->>>>>>> everything ll set before we run nm run production
               return _c(
                 "div",
                 { key: servicemodel.id, staticClass: "single-blog wow fadeIn" },
@@ -87237,9 +86320,6 @@ var render = function() {
                     "div",
                     { staticClass: "blog-details" },
                     [
-<<<<<<< HEAD
-                      _vm._m(0, true),
-=======
                       _c(
                         "div",
                         {
@@ -87265,7 +86345,6 @@ var render = function() {
                           })
                         ]
                       ),
->>>>>>> everything ll set before we run nm run production
                       _vm._v(" "),
                       _c("div", { staticClass: "post-date" }, [
                         _c("a", { attrs: { href: "#" } }, [
@@ -87284,11 +86363,7 @@ var render = function() {
                         "router-link",
                         {
                           staticClass: "read-more",
-<<<<<<< HEAD
-                          attrs: { to: "singleservicemodel/" + servicemodel.id }
-=======
                           attrs: { to: "/pservicemodel/" + servicemodel.id }
->>>>>>> everything ll set before we run nm run production
                         },
                         [_vm._v("Read More")]
                       )
@@ -87306,11 +86381,7 @@ var render = function() {
         1
       ),
       _vm._v(" "),
-<<<<<<< HEAD
-      _vm._m(1)
-=======
       _vm._m(0)
->>>>>>> everything ll set before we run nm run production
     ])
   ])
 }
@@ -87319,19 +86390,6 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-<<<<<<< HEAD
-    return _c("div", { staticClass: "blog-meta" }, [
-      _c("a", { attrs: { href: "#" } }, [
-        _c("i", { staticClass: "fa fa-ship" })
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-=======
->>>>>>> everything ll set before we run nm run production
     return _c("div", { staticClass: "row" }, [
       _c("div", { staticClass: "col-md-12 col-xs-12" }, [
         _c("ul", { staticClass: "pagination" }, [
@@ -87367,8 +86425,6 @@ render._withStripped = true
 
 /***/ }),
 
-<<<<<<< HEAD
-=======
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/public/PublicSingleServiceModel.vue?vue&type=template&id=f741eba0&":
 /*!**********************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/public/PublicSingleServiceModel.vue?vue&type=template&id=f741eba0& ***!
@@ -87487,7 +86543,6 @@ render._withStripped = true
 
 /***/ }),
 
->>>>>>> everything ll set before we run nm run production
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/public/ServiceSidebar.vue?vue&type=template&id=6f9f13b2&":
 /*!************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/public/ServiceSidebar.vue?vue&type=template&id=6f9f13b2& ***!
@@ -87503,77 +86558,6 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-<<<<<<< HEAD
-  return _c("span", { attrs: { id: "sidebar" } }, [
-    _c("div", { staticClass: "col-md-4 col-lg-4 col-sm-12 col-xs-12" }, [
-      _c("div", { staticClass: "sidebar-area wow fadeIn" }, [
-        _c("div", { staticClass: "single-sidebar-widget widget_search" }, [
-          _c("h4", [_vm._v("Search")]),
-          _vm._v(" "),
-          _c("form", { attrs: { action: "#" } }, [
-            _c("input", {
-              directives: [
-                {
-                  name: "model",
-                  rawName: "v-model",
-                  value: _vm.keyword,
-                  expression: "keyword"
-                }
-              ],
-              staticClass: "input-medium search-query",
-              attrs: { type: "text" },
-              domProps: { value: _vm.keyword },
-              on: {
-                keyup: _vm.RealSearch,
-                input: function($event) {
-                  if ($event.target.composing) {
-                    return
-                  }
-                  _vm.keyword = $event.target.value
-                }
-              }
-            }),
-            _vm._v(" "),
-            _c(
-              "button",
-              {
-                attrs: { type: "submit" },
-                on: {
-                  click: function($event) {
-                    $event.preventDefault()
-                    return _vm.RealSearch($event)
-                  }
-                }
-              },
-              [_c("i", { staticClass: "fa fa-search" })]
-            )
-          ])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "single-sidebar-widget widget_categories" }, [
-          _c("h4", [_vm._v("Services")]),
-          _vm._v(" "),
-          _c(
-            "ul",
-            _vm._l(_vm.Services, function(service) {
-              return service.servicemodel.length > 0
-                ? _c(
-                    "li",
-                    { key: service.id },
-                    [
-                      _c(
-                        "router-link",
-                        { attrs: { to: "services/" + service.id } },
-                        [_vm._v(_vm._s(service.name))]
-                      ),
-                      _vm._v(" "),
-                      _c("span", [
-                        _vm._v("(" + _vm._s(service.servicemodel.length) + ")")
-                      ])
-                    ],
-                    1
-                  )
-=======
   return _c("div", { staticClass: "col-md-4 col-lg-4 col-sm-12 col-xs-12" }, [
     _c("div", { staticClass: "sidebar-area wow fadeIn" }, [
       _c("div", { staticClass: "single-sidebar-widget widget_search" }, [
@@ -87698,78 +86682,12 @@ var render = function() {
                       )
                     ])
                   ])
->>>>>>> everything ll set before we run nm run production
                 : _vm._e()
             }),
             0
           )
-<<<<<<< HEAD
-        ]),
-        _vm._v(" "),
-        _c(
-          "div",
-          { staticClass: "single-sidebar-widget widget_recent_entries" },
-          [
-            _c("h4", [_vm._v("Latest Post")]),
-            _vm._v(" "),
-            _c(
-              "ul",
-              _vm._l(_vm.ServiceModels, function(servicemodel, index) {
-                return index < 5
-                  ? _c("li", { key: servicemodel.id }, [
-                      _c("div", { staticClass: "alignleft" }, [
-                        _c("img", {
-                          staticClass: "pull-left",
-                          attrs: {
-                            src: _vm.servicemodelLoadImage(servicemodel.image),
-                            alt: "latest",
-                            width: "70"
-                          }
-                        })
-                      ]),
-                      _vm._v(" "),
-                      _c(
-                        "h6",
-                        [
-                          _c(
-                            "router-link",
-                            {
-                              attrs: {
-                                to: "singleservicemodel/" + servicemodel.id,
-                                href: "#"
-                              }
-                            },
-                            [_vm._v(_vm._s(servicemodel.name))]
-                          )
-                        ],
-                        1
-                      ),
-                      _vm._v(" "),
-                      _c("p", [
-                        _vm._v(
-                          "\n                                " +
-                            _vm._s(
-                              _vm._f("sortlength")(
-                                servicemodel.details,
-                                100,
-                                "...."
-                              )
-                            ) +
-                            "\n                                "
-                        )
-                      ])
-                    ])
-                  : _vm._e()
-              }),
-              0
-            )
-          ]
-        )
-      ])
-=======
         ]
       )
->>>>>>> everything ll set before we run nm run production
     ])
   ])
 }
@@ -104752,14 +103670,15 @@ __webpack_require__.r(__webpack_exports__);
 /*!***********************************************************!*\
   !*** ./resources/js/components/public/ServiceSidebar.vue ***!
   \***********************************************************/
-/*! exports provided: default */
+/*! no static exports found */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _ServiceSidebar_vue_vue_type_template_id_6f9f13b2___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ServiceSidebar.vue?vue&type=template&id=6f9f13b2& */ "./resources/js/components/public/ServiceSidebar.vue?vue&type=template&id=6f9f13b2&");
 /* harmony import */ var _ServiceSidebar_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ServiceSidebar.vue?vue&type=script&lang=js& */ "./resources/js/components/public/ServiceSidebar.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _ServiceSidebar_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _ServiceSidebar_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
 
@@ -104789,76 +103708,7 @@ component.options.__file = "resources/js/components/public/ServiceSidebar.vue"
 /*!************************************************************************************!*\
   !*** ./resources/js/components/public/ServiceSidebar.vue?vue&type=script&lang=js& ***!
   \************************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ServiceSidebar_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./ServiceSidebar.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/public/ServiceSidebar.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ServiceSidebar_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
-
-/***/ }),
-
-/***/ "./resources/js/components/public/ServiceSidebar.vue?vue&type=template&id=6f9f13b2&":
-/*!******************************************************************************************!*\
-  !*** ./resources/js/components/public/ServiceSidebar.vue?vue&type=template&id=6f9f13b2& ***!
-  \******************************************************************************************/
-/*! exports provided: render, staticRenderFns */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ServiceSidebar_vue_vue_type_template_id_6f9f13b2___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./ServiceSidebar.vue?vue&type=template&id=6f9f13b2& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/public/ServiceSidebar.vue?vue&type=template&id=6f9f13b2&");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ServiceSidebar_vue_vue_type_template_id_6f9f13b2___WEBPACK_IMPORTED_MODULE_0__["render"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ServiceSidebar_vue_vue_type_template_id_6f9f13b2___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
-
-
-
-/***/ }),
-
-/***/ "./resources/js/components/public/ServiceSidebar.vue":
-/*!***********************************************************!*\
-  !*** ./resources/js/components/public/ServiceSidebar.vue ***!
-  \***********************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _ServiceSidebar_vue_vue_type_template_id_6f9f13b2___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ServiceSidebar.vue?vue&type=template&id=6f9f13b2& */ "./resources/js/components/public/ServiceSidebar.vue?vue&type=template&id=6f9f13b2&");
-/* harmony import */ var _ServiceSidebar_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ServiceSidebar.vue?vue&type=script&lang=js& */ "./resources/js/components/public/ServiceSidebar.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
-
-
-
-
-
-/* normalize component */
-
-var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
-  _ServiceSidebar_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
-  _ServiceSidebar_vue_vue_type_template_id_6f9f13b2___WEBPACK_IMPORTED_MODULE_0__["render"],
-  _ServiceSidebar_vue_vue_type_template_id_6f9f13b2___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
-  false,
-  null,
-  null,
-  null
-  
-)
-
-/* hot reload */
-if (false) { var api; }
-component.options.__file = "resources/js/components/public/ServiceSidebar.vue"
-/* harmony default export */ __webpack_exports__["default"] = (component.exports);
-
-/***/ }),
-
-/***/ "./resources/js/components/public/ServiceSidebar.vue?vue&type=script&lang=js&":
-/*!************************************************************************************!*\
-  !*** ./resources/js/components/public/ServiceSidebar.vue?vue&type=script&lang=js& ***!
-  \************************************************************************************/
-/*! exports provided: default */
+/*! no static exports found */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -106103,15 +104953,9 @@ __webpack_require__.r(__webpack_exports__);
 //permission
 var state = {
   servicemodels: [],
-<<<<<<< HEAD
-  servicemodelsbyid: [],
-  singleservicemodel: [],
-  latestServiceModels: []
-=======
   servicemodelsbyservid: [],
   singleservicemodel: [],
   latestservicemodels: []
->>>>>>> everything ll set before we run nm run production
 },
     getters = {
   ServiceModels: function ServiceModels(state) {
@@ -106120,16 +104964,11 @@ var state = {
   SingleServiceModel: function SingleServiceModel(state) {
     return state.singleservicemodel;
   },
-<<<<<<< HEAD
-  latestServiceModels: function latestServiceModels(state) {
-    return state.latestServiceModels;
-=======
   ServiceModelsbyServID: function ServiceModelsbyServID(state) {
     return state.servicemodelsbyservid;
   },
   LatestServiceModels: function LatestServiceModels(state) {
     return state.latestservicemodels;
->>>>>>> everything ll set before we run nm run production
   }
 };
 var actions = {
@@ -106142,9 +104981,6 @@ var actions = {
   },
   ServiceModelById: function ServiceModelById(context, payload) {
     axios.get('/servicemodel/show/' + payload).then(function (response) {
-<<<<<<< HEAD
-      context.commit('singleservicemodel', response.data.singleservicemodel);
-=======
       context.commit('singleservicemodel', response.data.singleservicemodel); //view one
     });
   },
@@ -106153,7 +104989,6 @@ var actions = {
     axios.get('/servicemodel/fetch/' + payload).then(function (response) {
       console.log('inche', response.data.servicemodels);
       context.commit('servicemodelsbyservid', response.data.servicemodels); //loged in gets all servicemodels based by service id
->>>>>>> everything ll set before we run nm run production
     });
   },
   SearchServiceModel: function SearchServiceModel(context, payload) {
@@ -106174,18 +105009,6 @@ var actions = {
       console.log('latest by service i', response.data);
       context.commit('LatestServiceModels', response.data.servicemodels); //loged in gets all servicemodels based by service id
     });
-  },
-  latestServiceModels: function latestServiceModels(context) {
-    axios.get('/servicemodel/latest/').then(function (response) {
-      console.log(response.data);
-      context.commit(' latestServiceModels', response.data.ervicemodels);
-    });
-  },
-  SearchServiceModel: function SearchServiceModel(context, payload) {
-    axios.get('/blogcourse/courses/search?s=' + payload).then(function (response) {
-      console.log(response.data);
-      context.commit('SearchServiceModels', response.data.servicemodels);
-    });
   }
 };
 var mutations = {
@@ -106195,16 +105018,6 @@ var mutations = {
   singleservicemodel: function singleservicemodel(state, data) {
     return state.singleservicemodel = data;
   },
-<<<<<<< HEAD
-  servicemodelsbyid: function servicemodelsbyid(state, data) {
-    return state.servicemodelsbyid = data;
-  },
-  latestServiceModels: function latestServiceModels(state, data) {
-    return state.latestServiceModels = data;
-  },
-  SearchServiceModels: function SearchServiceModels(state, data) {
-    return state.servicemodels = data;
-=======
   servicemodelsbyservid: function servicemodelsbyservid(state, data) {
     return state.servicemodelsbyservid = data;
   },
@@ -106213,7 +105026,6 @@ var mutations = {
   },
   LatestServiceModels: function LatestServiceModels(state, data) {
     return state.latestservicemodels = data;
->>>>>>> everything ll set before we run nm run production
   }
 };
 /* harmony default export */ __webpack_exports__["default"] = ({

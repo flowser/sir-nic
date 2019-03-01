@@ -134,25 +134,15 @@
                             </div>
                             <div class="tab-pane" id="services">
                                 <div class="row ">
-<<<<<<< HEAD
-                                     <div  v-for="service in Service" :key="service.id" class="card d-flex col-md-6 col-lg-4 col-sm-12 col-xs-12 border-0">
-                                        <div class="card flex-fill" >
-                                                <img class="card-img-top " :src="serviceLoadImage(service.service_image)" style="width:100%">
-=======
                                      <div  v-for="service in Services" :key="service.id" class="d-flex col-md-4">
                                         <div class="card flex-fill border-0" >
                                                 <img class="card-img-top " :src="serviceLoadImage(service.service_image)" style="width:100%; height:200px">
->>>>>>> everything ll set before we run nm run production
                                             <div class="card-body" >
                                                     <h5 class="card-title text-center">{{service.title}}</h5>
                                                 <h6 class="card-title text-center">{{service.service_title}}</h6>
                                                 <p style="margin-bottom:-0.5em" class="card-text">{{service.service_details }}</p>
                                             </div>
-<<<<<<< HEAD
-                                               <router-link  :to="`/services/${service.id}`" class="pull-right blue">More Models For this Service</router-link>
-=======
                                                <router-link  :to="`/pservice/${service.id}`" class="pull-right blue">More Models For this Service</router-link>
->>>>>>> everything ll set before we run nm run production
                                        </div>
                                     </div>
                                 </div>

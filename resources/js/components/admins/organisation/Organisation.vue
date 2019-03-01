@@ -397,11 +397,7 @@
                                                     </a> -->
                                                 </div>
                                                 <div class="float-left">
-<<<<<<< HEAD
-                                                    <a href="#about_us" class="card-link">Updated BY: {{About.user.full_name}}</a>
-=======
                                                     <a href="#about_us" class="card-link" v-if="About.user">Updated BY: {{About.user.full_name}}</a>
->>>>>>> everything ll set before we run nm run production
                                                     <a href="#about_us" class="card-link">Updated On: {{About.updated_at | dateformat}}</a>
                                                 </div>
                                             </div>

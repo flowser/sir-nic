@@ -54,10 +54,7 @@ class AdvertController extends Controller
             $advert->details = $request ->details;
 
             $organisation= Organisation::first();
-<<<<<<< HEAD
 
-=======
->>>>>>> everything ll set before we run nm run production
                 //then
                 $user = Auth::user();
                 $advert->organisation_id = $organisation ->id;
@@ -142,22 +139,16 @@ class AdvertController extends Controller
             $advert->title = $request ->title;
             $advert->subtitle = $request ->subtitle;
             $advert->details = $request ->details;
-<<<<<<< HEAD
         //getting Organisation $user, about_id
         $organisation= Organisation::first();
 
-=======
         //getting Organisation $user, advert_id
         $organisation= Organisation::first();
->>>>>>> everything ll set before we run nm run production
                 //then
                 $user = Auth::user();
                 $advert->organisation_id = $organisation ->id;
                 $advert->user_id = $user ->id;
-<<<<<<< HEAD
-=======
 
->>>>>>> everything ll set before we run nm run production
         //getting previous image
         $currentImage = $advert->advert_image;
 
