@@ -1,9 +1,9 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use App\Models\Organisation\OrganisationEmployee;
+use App\Models\Organisation\OrganisationAdmin;
 
-class OrganisationEmployeeTableSeeder extends Seeder
+class OrganisationAdminTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -12,7 +12,7 @@ class OrganisationEmployeeTableSeeder extends Seeder
      */
     public function run()
     {
-        OrganisationEmployee::create([
+        OrganisationAdmin::create([
             'user_id'  => '1',
             'organisation_id'  => '1',
             'position_id'  => '5',//super admin

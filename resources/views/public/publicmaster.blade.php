@@ -17,10 +17,11 @@
       <meta name="csrf-token" content="{{csrf_token()}}" />
 
       <!--====== TITLE TAG ======-->
-      <title>Carries HTML5 Business Template</title>
+      <title>{{$organisation->name}}</title>
 
       <!--====== FAVICON ICON =======-->
-      <link rel="shortcut icon" type="image/ico" href="{{URL::asset('front_theme/img/favicon.png')}}" />
+      <link rel="shortcut icon" type="image/ico" href="{{URL::asset('assets/organisation/img/logo/')}}/{{$organisation->logo}}" />
+      {{--  src="assets/organisation/img/logo/{{$organisation->logo}}"  --}}
 
       <!--====== STYLESHEETS ======-->
       <link rel="stylesheet" href="{{URL::asset('front_theme/css/normalize.css')}}">
@@ -89,7 +90,7 @@
                 <div class="header-top-area">
                     <!--MAINMENU AREA-->
                     <div class="mainmenu-area" id="mainmenu-area">
-                        <div class="mainmenu-area-bg"></div>
+                        {{--  <div class="mainmenu-area-bg"></div>  --}}
                         <!--Navbar-->
                         <nav class="navbar navbar-expand-lg navbar-dark primary-color">
                             <div class="container-fluid">
@@ -136,19 +137,21 @@
                                 <ul class="nav navbar-nav navbar-right" style="margin: 11px;">
                                         @if (Route::has('login'))
                                            @guest
-                                               <li style="padding-right: 10px;"><a href="{{ route('login') }}" class="btn btn-success">Login</a></li>
+                                           <!-- Button trigger modal -->
+                                           <li class="btn btn-outline-success"  data-toggle="modal" data-target="#loginModal" >Login</li>
                                            @endguest
                                                    {{-- <li style="padding-right: 10px;"><a href="#" class="btn btn-warning">Register</a></li> --}}
                                            {{-- @if (Route::has('register'))
                                                    <li style="padding-right: 10px;"><a href="#" class="btn btn-default">Link</a></li>
                                             @endif --}}
                                         @endif
+
+
                                 </div>
                                 <!-- Collapsible content -->
                             </div>
                         </nav>
                         <!--/.Navbar-->
-
                     </div>
                     <!--END MAINMENU AREA END-->
                 </div>
@@ -189,6 +192,75 @@
                 </div>
                 <!--END HOME SLIDER AREA-->
             </header>
+            <!-- Modal -->
+                        <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalTitle" aria-hidden="true">
+                          <div class="modal-dialog modal-dialog-centered" role="document">
+                            <div class="modal-content">
+                                <form method="POST" action="{{ route('login') }}">
+                                    @csrf
+                                    <div class="modal-header" style="width:30%:left: 150px; padding: 2px;">
+                                        <div class="card border-0 text-center">
+                                                <img src="assets/organisation/img/logo/{{$organisation->logo}}" alt="logo" style="width: 25%;margin-left: 175px;">
+                                                <div class="card-body" style="padding: 2px;">
+                                                    <h5 class="modal-title text-center" id="loginModalLongTitle">{{$organisation->name}}</h5>
+                                               </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="modal-body" style="padding: 5px;">
+                                        <div class="form-group row">
+                                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
+                                            <div class="col-md-8">
+                                                    <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required autofocus>
+                                                @if ($errors->has('email'))
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $errors->first('email') }}</strong>
+                                                    </span>
+                                                @endif
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                                <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
+                                            <div class="col-md-8">
+                                                <input id="password" type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" required>
+                                                @if ($errors->has('password'))
+                                                <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $errors->first('password') }}</strong>
+                                                </span>
+                                                @endif
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <div class="col-md-6 offset-md-4">
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
+
+                                                    <label class="form-check-label" for="remember">
+                                                        {{ __('Remember Me') }}
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer" style="padding: 5px;">
+                                        <div class="form-group row ">
+                                            <div class="col-md ">
+                                                <button type="submit" class="btn btn-outline-primary">
+                                                            {{ __('Login') }}
+                                                </button>
+                                                @if (Route::has('password.request'))
+                                                    <a class="btn btn-outline-danger" href="{{ route('password.request') }}">
+                                                        {{ __('Forgot Your Password?') }}
+                                                    </a>
+                                                @endif
+                                                <button type="button" class="btn btn-outline-warning" data-dismiss="modal">Close</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                          </div>
+                        </div>
             <!--END TOP AREA-->
 
         <div class="content">

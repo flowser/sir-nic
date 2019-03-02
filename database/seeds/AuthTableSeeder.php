@@ -41,7 +41,7 @@ class AuthTableSeeder extends Seeder
         $this->call(GenderTableSeeder::class);
         $this->call(PositionTableSeeder::class);
         $this->call(OrganisationTableSeeder::class);
-        // $this->call(OrganisationEmployeeTableSeeder::class);
+        $this->call(OrganisationAdminTableSeeder::class);
         $this->enableForeignKeys();
     }
 }

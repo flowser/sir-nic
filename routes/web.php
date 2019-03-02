@@ -2,14 +2,17 @@
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Frontend\PublicController;
 use App\Http\Controllers\Backend\Standard\WardController;
 use App\Http\Controllers\Backend\Webpage\AboutController;
 use App\Http\Controllers\Backend\Webpage\AdvertController;
 use App\Http\Controllers\Backend\Standard\CountyController;
+use App\Http\Controllers\Backend\Standard\GenderController;
 use App\Http\Controllers\Backend\Webpage\FeatureController;
 use App\Http\Controllers\Backend\Webpage\ServiceController;
 use App\Http\Controllers\Backend\Standard\CountryController;
+use App\Http\Controllers\Backend\Standard\PositionController;
 use App\Http\Controllers\Backend\Webpage\ServiceModelController;
 use App\Http\Controllers\Backend\Standard\ConstituencyController;
 use App\Http\Controllers\Backend\Organisation\Superadmin\RoleController;
@@ -42,58 +45,7 @@ Route::get('/', [PublicController::class, 'index'])->name('public.index');
 
 Auth::routes();
 
-Route::get('/admin_home', 'HomeController@index')->name('adminhome');
-
-
-// *
-//  * All route names are prefixed with 'admin.auth'.
-//  */
-// Route::group([
-//     // 'prefix'     => 'auth',
-//     // 'as'         => 'auth.',
-//     // 'namespace'  => 'Auth',
-//     // 'middleware' => 'role:'.config('access.users.admin_role'),
-// ], function () {
-
-//     Route::group(['namespace' => 'Organisation'], function () {
-//         /*
-//        * Organisation Status'
-//        */
-//         Route::get('organisation/deactivated', [OrganisationstatusController::class, 'getdeactivated'])->name('organisation.deactivated');
-//         Route::get('organisation/deleted', [OrganisationstatusController::class, 'getDeleted'])->name('organisation.deleted');
-//         Route::get('organisation/mark/{id}', [OrganisationstatusController::class, 'mark'])->name('organisation.mark');
-//         // Access
-//         /*
-//         * Organisation CRUD
-//         */
-//         Route::get('organisation', [OrganisationController::class, 'index'])->name('organisation.index');
-//         Route::get('organisation/create', [OrganisationController::class, 'create'])->name('organisation.create');
-//         Route::post('organisation', [OrganisationController::class, 'store'])->name('organisation.store');
-
-//         /*
-//          * Specific Organisation
-//          */
-//         Route::group(['prefix' => 'organisation/{organisation}'], function () {
-//             // Deleted
-//             Route::get('delete', [OrganisationstatusController::class, 'delete'])->name('organisation.delete-permanently');
-//             Route::get('restore', [OrganisationstatusController::class, 'restore'])->name('organisation.restore');
-// //            Route::get('/', [OrganisationController::class, 'show'])->name('organisation.show');
-//             Route::get('edit', [OrganisationController::class, 'edit'])->name('organisation.edit');
-//             Route::patch('/', [OrganisationController::class, 'update'])->name('organisation.update');
-//             Route::get('/takedown', [OrganisationController::class, 'takedown'])->name('organisation.takedown');
-//         });
-//     });
-
-    /*
-     * User Management
-     */
-    // Route::group(['namespace' => 'User'], function () {
-
-    //     /*
-    //      * User Status'
-    //      */
-    //     Route::get('user/deactivated', [UserStatusController::class, 'getDeactivated'])->name('user.deactivated');
-    //     Route::get('user/deleted', [UserStatusController::class, 'getDeleted'])->name('user.deleted');
+Route::get('admin_home', [HomeController::class, 'index'])->name('adminhome');
 
     //     /*
     //      * User CRUD
@@ -105,46 +57,12 @@ Route::get('/admin_home', 'HomeController@index')->name('adminhome');
     //     /*
     //      * Specific User
     //      */
-    //     Route::get('/', [UserController::class, 'show'])->name('user.show');
-    //     Route::group(['prefix' => 'user/{user}'], function () {
-    //         // User
+
             Route::get('user/show/{user}', [UserController::class, 'show'])->name('user.show');
             Route::get('user/edit/{user}', [UserController::class, 'edit'])->name('user.edit');
             Route::patch('user/update/{user}', [UserController::class, 'update'])->name('user.update');
             Route::get('user/delete/{user}/', [UserController::class, 'destroy'])->name('user.destroy');
 
-    //         // Account
-    //         Route::get('account/confirm/resend', [UserConfirmationController::class, 'sendConfirmationEmail'])->name('user.account.confirm.resend');
-
-    //         // Status
-    //         Route::get('mark/{status}', [UserStatusController::class, 'mark'])->name('user.mark')->where(['status' => '[0,1]']);
-
-    //         // Social
-    //         Route::get('social/{social}/unlink', [UserSocialController::class, 'unlink'])->name('user.social.unlink');
-
-    //         // Confirmation
-    //         Route::get('confirm', [UserConfirmationController::class, 'confirm'])->name('user.confirm');
-    //         Route::get('unconfirm', [UserConfirmationController::class, 'unconfirm'])->name('user.unconfirm');
-
-    //         // Password
-    //         Route::get('password/change', [UserPasswordController::class, 'edit'])->name('user.change-password');
-    //         Route::patch('password/change', [UserPasswordController::class, 'update'])->name('user.change-password.post');
-
-    //         // Access
-    //         Route::get('login-as', [UserAccessController::class, 'loginAs'])->name('user.login-as');
-
-    //         // Session
-    //         Route::get('clear-session', [UserSessionController::class, 'clearSession'])->name('user.clear-session');
-
-    //         // Deleted
-    //         Route::get('delete', [UserStatusController::class, 'delete'])->name('user.delete-permanently');
-    //         Route::get('restore', [UserStatusController::class, 'restore'])->name('user.restore');
-    //     });
-    // });
-
-    /*
-     * Permission Management
-     */
     Route::group(['namespace' => 'Permission'], function () {
         Route::get('permission-list', [PermissionController::class, 'index'])->name('permission.index');
         // Route::get('permission/create', [RoleController::class, 'create'])->name('permission.create');
@@ -217,6 +135,31 @@ Route::get('/admin_home', 'HomeController@index')->name('adminhome');
         Route::get('ward/edit/{ward}', [WardController::class, 'edit'])->name('ward.edit');
         Route::patch('ward/update/{ward}', [WardController::class, 'update'])->name('ward.update');
         Route::get('ward/delete/{ward}', [WardController::class, 'destroy'])->name('ward.destroy');
+
+        //position
+        Route::get('position/get', [PositionController::class, 'index'])->name('position.index');
+        Route::get('position/get/list/{position}', [PositionController::class, 'PositionList'])->name('position.list-index');
+        Route::post('position', [PositionController::class, 'store'])->name('position.store');
+    //     /*
+    //      * Specifics
+    //      */
+        Route::get('position/show/{position}', [PositionController::class, 'show'])->name('position.show');
+        Route::get('position/edit/{position}', [PositionController::class, 'edit'])->name('position.edit');
+        Route::patch('position/update/{position}', [PositionController::class, 'update'])->name('position.update');
+        Route::get('position/delete/{position}', [PositionController::class, 'destroy'])->name('position.destroy');
+
+//gender
+        Route::get('gender/get', [GenderController::class, 'index'])->name('gender.index');
+        Route::get('gender/get/list/{gender}', [GenderController::class, 'GenderList'])->name('gender.list-index');
+        Route::post('gender', [GenderController::class, 'store'])->name('gender.store');
+    //     /*
+    //      * Specifics
+    //      */
+        Route::get('gender/show/{gender}', [GenderController::class, 'show'])->name('gender.show');
+        Route::get('gender/edit/{gender}', [GenderController::class, 'edit'])->name('gender.edit');
+        Route::patch('gender/update/{gender}', [GenderController::class, 'update'])->name('gender.update');
+        Route::get('gender/delete/{gender}', [GenderController::class, 'destroy'])->name('gender.destroy');
+
 
 
         // organisation
@@ -354,7 +297,68 @@ Route::get('/admin_home', 'HomeController@index')->name('adminhome');
 
 
 
+    //      // bureau
+    //      Route::get('bureau/get', [BureauController::class, 'index'])->name('bureau.index');
+    //      Route::get('bureaus/get/list', [BureauController::class, 'BureauList'])->name('bureau.list-index');
+    //      Route::post('bureau/verify/info/', [BureauController::class, 'verifyBureauInfo'])->name('bureau.verify');
+    //      Route::post('bureau/verify/director/', [BureauController::class, 'verifyDirectorInfo'])->name('bureau.verifydirector');
+    //      Route::post('bureau', [BureauController::class, 'store'])->name('bureau.store');
+    //  //     /*
+    //  //      * Specifics
+    //  //      */
+    //      Route::get('bureau/show/{bureau}', [BureauController::class, 'show'])->name('bureau.show');
+    //      Route::get('bureau/edit/{bureau}', [BureauController::class, 'edit'])->name('bureau.edit');
+    //      Route::patch('bureau/updateverify/info/{bureau}', [BureauController::class, 'updateverifyBureauInfo'])->name('bureau.updateverify');
+    //      Route::patch('bureau/updateverify/director/{bureau}', [BureauController::class, 'updateverifyDirectorInfo'])->name('bureau.updateverifydirector');
+    //      Route::patch('bureau/update/{bureau}', [BureauController::class, 'update'])->name('bureau.update');
+    //      Route::patch('singlebureau/update/{bureau}', [BureauController::class, 'singleupdate'])->name('bureau.update');
+    //      Route::get('bureau/delete/{bureau}', [BureauController::class, 'destroy'])->name('bureau.destroy');
 
-// });
+    //      // bureaudirector
+    //      Route::get('bureaudirector/get', [BureauDirectorController::class, 'index'])->name('bureaudirector.index');
+    //      Route::get('bureaudirectors/get', [BureauDirectorController::class, 'bureaus'])->name('bureaudirector.bureaus');
+    //      Route::get('bureaudirector/get/list', [BureauDirectorController::class, 'bureaudirectorList'])->name('bureaudirector.list-index');
+    //      Route::post('bureaudirector/verify/director/', [BureauDirectorController::class, 'verifyDirectorInfo'])->name('bureaudirector.verifydirector');
+    //      Route::patch('bureaudirector/{bureaudirector}', [BureauDirectorController::class, 'store'])->name('bureaudirector.store');
+    //  //     /*
+    //  //      * Specifics
+    //  //      */
+    //      Route::get('bureaudirector/view/{bureaudirector}', [BureauDirectorController::class, 'view'])->name('bureaudirector.show');
+    //      Route::get('bureaudirector/show/{bureaudirector}', [BureauDirectorController::class, 'show'])->name('bureaudirector.show');
+    //      Route::get('bureaudirector/edit/{bureaudirector}', [BureauDirectorController::class, 'edit'])->name('bureaudirector.edit');
+    //      Route::patch('bureaudirector/updateverify/director/{bureaudirector}', [BureauDirectorController::class, 'updateverifyDirectorInfo'])->name('bureaudirector.updateverifydirector');
+    //      Route::patch('bureaudirector/update/{bureaudirector}', [BureauDirectorController::class, 'update'])->name('bureaudirector.update');
+    //      Route::get('bureaudirector/delete/{bureaudirector}/', [BureauDirectorController::class, 'destroy'])->name('bureaudirector.destroy');
+
+    //              // bureauadmin
+    //      Route::get('bureauadmin/get', [BureauAdminController::class, 'index'])->name('bureauadmin.index');
+    //      Route::get('bureauadmins/get', [BureauAdminController::class, 'bureaus'])->name('bureauadmin.bureaus');
+    //      Route::get('bureauadmin/get/list', [BureauAdminController::class, 'bureauadminList'])->name('bureauadmin.list-index');
+    //      Route::post('bureauadmin/verify/admin/', [BureauAdminController::class, 'verifyAdminInfo'])->name('bureauadmin.verifyadmin');
+    //      Route::patch('bureauadmin/{bureaudirector}', [BureauAdminController::class, 'store'])->name('bureauadmin.store');
+    //  //     /*
+    //  //      * Specifics
+    //  //      */
+    //      Route::get('bureauadmin/show/{bureauadmin}', [BureauAdminController::class, 'show'])->name('bureauadmin.show');
+    //      Route::get('bureauadmin/edit/{bureauadmin}', [BureauAdminController::class, 'edit'])->name('bureauadmin.edit');
+    //      Route::patch('bureauadmin/updateverify/admin/{bureauadmin}', [BureauAdminController::class, 'updateverifyAdminInfo'])->name('bureauadmin.updateverifyadmin');
+    //      Route::patch('bureauadmin/update/{bureauadmin}', [BureauAdminController::class, 'update'])->name('bureauadmin.update');
+    //      Route::get('bureauadmin/delete/{bureauadmin}/', [BureauAdminController::class, 'destroy'])->name('bureauadmin.destroy');
+
+    //                  // househelp
+    //      Route::get('househelp/get', [HousehelpController::class, 'index'])->name('househelp.index');
+    //      Route::get('househelps/get', [HousehelpController::class, 'bureaus'])->name('househelp.bureaus');
+    //      Route::get('househelp/get/list', [HousehelpController::class, 'househelpList'])->name('househelp.list-index');
+    //      Route::post('househelp/verify/kin/', [HousehelpController::class, 'verifyKinInfo'])->name('househelp.verifykin');
+    //      Route::patch('househelp/{bureaudirector}', [HousehelpController::class, 'store'])->name('househelp.store');
+    //  //     /*
+    //  //      * Specifics
+    //  //      */
+    //      Route::get('househelp/show/{househelp}', [HousehelpController::class, 'show'])->name('househelp.show');
+    //      Route::get('househelp/edit/{househelp}', [HousehelpController::class, 'edit'])->name('househelp.edit');
+    //      Route::patch('househelp/updateverify/kin/{househelp}', [HousehelpController::class, 'updateverifyKinInfo'])->name('househelp.updateverifykin');
+    //      Route::patch('househelp/update/{househelp}', [HousehelpController::class, 'update'])->name('househelp.update');
+    //      Route::get('househelp/delete/{househelp}/', [HousehelpController::class, 'destroy'])->name('househelp.destroy');
+
 
 

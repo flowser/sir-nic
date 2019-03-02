@@ -351,9 +351,6 @@ class OrgAdminController extends Controller
            }
 
        if($user){
-           $position_id = Position::find(1)->id;
-           $gender_id = Gender::find(1)->id;
-
            $id_no = $request-> id_no;
            $about_me = $request-> about_me;
            $phone = $request-> phone;
@@ -364,7 +361,7 @@ class OrgAdminController extends Controller
            $constituency_id = $request-> constituency_id;
            $ward_id = $request-> ward_id;
 
-           $position_id = Position::find(1)->id;
+           $position_id = Position::find(3)->id;
            $gender_id = Gender::find(1)->id;
 
            DB::table('organisation_admin')->where('user_id', $user->id)

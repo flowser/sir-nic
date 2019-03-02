@@ -24,6 +24,8 @@ class PublicController extends Controller
     //    dd($servicemodels );
         $adverts = Advert::with('user', 'organisation')->orderBy('id', 'desc')->get();
 
+        // return $organisation;
+
          return view('public.publicmaster', compact("organisation", "servicemodels", "adverts"));
     }
 

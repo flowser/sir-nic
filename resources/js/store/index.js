@@ -32,13 +32,13 @@
 
         //universal
             import about from './modules/webpages/about';
-            import aboutpic from './modules/webpages/aboutpic';
+
             import advert from './modules/webpages/advert';
             import service from './modules/webpages/service';
             import servicemodel from './modules/webpages/servicemodel';
-            import extraservice from './modules/webpages/extraservice';
+
             import feature from './modules/webpages/feature';
-            import servicefilter from './modules/webpages/servicefilter';
+
 
         export default {
           modules: {
@@ -71,13 +71,10 @@
                 wards,
             //universal
                 about,
-                aboutpic,
                 advert,
                 service,
                 servicemodel,
                 feature,
-                extraservice,
-                servicefilter,
           },
         };
 
